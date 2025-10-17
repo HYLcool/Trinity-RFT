@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>trinity.common.config module &#8212; Trinity-RFT 0.3.1.dev0 documentation</title>
+    <title>trinity.common.config module &#8212; Trinity-RFT 0.3.1 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=3106ee94"></script>
+    <script src="../_static/documentation_options.js?v=385a908f"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.3.1.dev0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.3.1.dev0 documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.3.1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.3.1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -363,6 +363,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="trinity.common.workflows.html">trinity.common.workflows package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.agentscope.html">trinity.common.workflows.agentscope package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.agentscope_workflow.html">trinity.common.workflows.agentscope_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.customized_math_workflows.html">trinity.common.workflows.customized_math_workflows module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.customized_toolcall_workflows.html">trinity.common.workflows.customized_toolcall_workflows module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.eval_workflow.html">trinity.common.workflows.eval_workflow module</a></li>
@@ -753,6 +754,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig"><code class="docutils literal notranslate"><span class="pre">ClusterConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.ray_address"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.ray_address</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.node_num"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.node_num</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.gpu_per_node"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.gpu_per_node</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.__init__"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.__init__()</span></code></a></li>
@@ -1685,22 +1687,27 @@ Data-Juicer operators for task pipeline.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="trinity.common.config.ClusterConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.common.config.</span></span><span class="sig-name descname"><span class="pre">ClusterConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_per_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/common/config.html#ClusterConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.common.config.ClusterConfig" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.common.config.</span></span><span class="sig-name descname"><span class="pre">ClusterConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_per_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/common/config.html#ClusterConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.common.config.ClusterConfig" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Config for the cluster.</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.common.config.ClusterConfig.ray_address">
+<span class="sig-name descname"><span class="pre">ray_address</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'auto'</span></em><a class="headerlink" href="#trinity.common.config.ClusterConfig.ray_address" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="trinity.common.config.ClusterConfig.node_num">
-<span class="sig-name descname"><span class="pre">node_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#trinity.common.config.ClusterConfig.node_num" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">node_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#trinity.common.config.ClusterConfig.node_num" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="trinity.common.config.ClusterConfig.gpu_per_node">
-<span class="sig-name descname"><span class="pre">gpu_per_node</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#trinity.common.config.ClusterConfig.gpu_per_node" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">gpu_per_node</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#trinity.common.config.ClusterConfig.gpu_per_node" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trinity.common.config.ClusterConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_per_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#trinity.common.config.ClusterConfig.__init__" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_per_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#trinity.common.config.ClusterConfig.__init__" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2557,6 +2564,7 @@ Data-Juicer operators for task pipeline.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig"><code class="docutils literal notranslate"><span class="pre">ClusterConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.ray_address"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.ray_address</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.node_num"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.node_num</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.gpu_per_node"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.gpu_per_node</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.config.ClusterConfig.__init__"><code class="docutils literal notranslate"><span class="pre">ClusterConfig.__init__()</span></code></a></li>
