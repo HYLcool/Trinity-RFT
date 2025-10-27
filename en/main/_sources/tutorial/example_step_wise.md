@@ -95,6 +95,8 @@ checkpoint_root_dir: ${oc.env:TRINITY_CHECKPOINT_ROOT_DIR,./checkpoints}
 algorithm:
   algorithm_type: multi_step_grpo
   repeat_times: 16
+  optimizer:
+    lr: 5e-6
 model:
   model_path: ${oc.env:TRINITY_MODEL_PATH,Qwen/Qwen2.5-7B-Instruct}
   max_response_tokens: 16384
@@ -119,7 +121,7 @@ buffer:
       workflow_args:
         max_env_steps: 30
       enable_progress_bar: false
-    default_workflow_type: 'step_wise_alfworld_workflow'
+      default_workflow_type: 'step_wise_alfworld_workflow'
   trainer_input:
     experience_buffer:
       name: alfworld_buffer
@@ -127,7 +129,7 @@ buffer:
       use_priority_queue: true
 explorer:
   max_repeat_times_per_runner: 1
-  runner_num: 32
+  runner_per_model: 32
   max_timeout: 3600
   rollout_model:
     enable_history: true
@@ -148,20 +150,10 @@ synchronizer:
   sync_timeout: 3600
 trainer:
   save_interval: 50
-  trainer_config:
-    actor_rollout_ref:
-      model:
-        use_remove_padding: true
-      actor:
-        use_dynamic_bsz: true
-        ppo_max_token_len_per_gpu: 16384
-        ulysses_sequence_parallel_size: 1
-        optim:
-          lr: 5e-6
-      ref:
-        log_prob_use_dynamic_bsz: ${trainer.trainer_config.actor_rollout_ref.actor.use_dynamic_bsz}
-        log_prob_max_token_len_per_gpu: ${trainer.trainer_config.actor_rollout_ref.actor.ppo_max_token_len_per_gpu}
-        ulysses_sequence_parallel_size: ${trainer.trainer_config.actor_rollout_ref.actor.ulysses_sequence_parallel_size} # sp size
+  grad_clip: 1.0
+  use_dynamic_bsz: true
+  max_token_len_per_gpu: 16384
+  ulysses_sequence_parallel_size: 1
 ```
 
 
