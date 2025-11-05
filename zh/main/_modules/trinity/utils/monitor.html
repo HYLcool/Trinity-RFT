@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>trinity.utils.monitor &#8212; Trinity-RFT 0.4.0.dev0 文档</title>
+    <title>trinity.utils.monitor &#8212; Trinity-RFT 0.3.2 文档</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=09f53066"></script>
+    <script src="../../../_static/documentation_options.js?v=66fd3a9e"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -144,8 +144,8 @@ window.addEventListener("load", () => mermaid.run());
       
     
     
-    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.4.0.dev0 文档 - Home"/>
-    <script>document.write(`<img src="../../../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.4.0.dev0 文档 - Home"/>`);</script>
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.3.2 文档 - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.3.2 文档 - Home"/>`);</script>
   
   
 </a></div>
@@ -191,6 +191,7 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_algorithm.html">Algorithm 开发指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/example_mix_algo.html">Algorithm 进阶开发</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_operator.html">Operator 开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_selector.html">🧪 实验性功能：任务选择与调度系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/trinity_configs.html">参数配置指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/synchronizer.html">Synchronizer 介绍</a></li>
 </ul>
@@ -581,15 +582,20 @@ document.write(`
 <div class="viewcode-block" id="gather_metrics">
 <a class="viewcode-back" href="../../../build_api/trinity.utils.monitor.html#trinity.utils.monitor.gather_metrics">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">gather_metrics</span><span class="p">(</span><span class="n">metric_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">metric_list</span><span class="p">)</span>
-    <span class="n">numeric_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
-    <span class="n">stats_df</span> <span class="o">=</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">])</span>
-    <span class="n">metric</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="n">metric</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">/mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-        <span class="n">metric</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">/max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-        <span class="n">metric</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">/min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">metric</span></div>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">metric_list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">metric_list</span><span class="p">)</span>
+        <span class="n">numeric_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
+        <span class="n">stats_df</span> <span class="o">=</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">])</span>
+        <span class="n">metric</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">metric</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">/mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">metric</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">/max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">metric</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">/min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metric</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to gather metrics: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span></div>
 
 
 
@@ -803,6 +809,7 @@ document.write(`
             <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;MLFLOW_TRACKING_PASSWORD&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span>
         <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">monitor</span><span class="o">.</span><span class="n">monitor_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;uri&quot;</span><span class="p">,</span> <span class="s2">&quot;http://localhost:5000&quot;</span><span class="p">))</span>
         <span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">enable_system_metrics_logging</span><span class="p">()</span>
         <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span>
             <span class="n">run_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">role</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">tags</span><span class="o">=</span><span class="p">{</span>
