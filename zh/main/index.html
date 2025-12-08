@@ -258,6 +258,7 @@
 <li class="toctree-l3"><a class="reference internal" href="build_api/trinity.buffer.buffer_writer.html">trinity.buffer.buffer_writer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="build_api/trinity.buffer.task_scheduler.html">trinity.buffer.task_scheduler module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="build_api/trinity.buffer.utils.html">trinity.buffer.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build_api/trinity.buffer.viewer.html">trinity.buffer.viewer module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="build_api/trinity.explorer.html">trinity.explorer package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -599,8 +600,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity-rft">💡 什么是 Trinity-RFT？</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔨 教程与指南</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🌟 核心特性</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">致谢</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">引用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🔨 算法支持</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">致谢</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">引用</a></li>
 </ul>
             </nav>
         </div>
@@ -693,7 +695,83 @@ document.write(`
 </ul>
 </section>
 <section id="id3">
-<h2>致谢<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>🔨 算法支持<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>下表列出了 Trinity-RFT 支持的算法，更多算法请参考 <a class="reference external" href="https://github.com/modelscope/Trinity-RFT/blob/main/trinity/algorithm/algorithm.py">算法模块</a>。您也可以通过自定义不同的模块来构建新算法，参见 <a class="reference internal" href="tutorial/develop_algorithm.html"><span class="std std-doc">教程</span></a>。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>算法</p></th>
+<th class="head text-left"><p>文档/示例</p></th>
+<th class="head text-left"><p>核心代码</p></th>
+<th class="head text-left"><p>关键配置</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>PPO [<a class="reference external" href="https://arxiv.org/pdf/1707.06347">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://modelscope.github.io/Trinity-RFT/zh/main/tutorial/example_reasoning_basic.html">文档</a>] [<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/ppo_countdown">Countdown 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/ppo_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">ppo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>GRPO [<a class="reference external" href="https://arxiv.org/pdf/2402.03300">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://modelscope.github.io/Trinity-RFT/zh/main/tutorial/example_reasoning_basic.html">文档</a>] [<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/grpo_gsm8k">GSM8K 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/advantage_fn/grpo_advantage.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">grpo</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>CHORD 💡 [<a class="reference external" href="https://arxiv.org/pdf/2508.11408">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://modelscope.github.io/Trinity-RFT/zh/main/tutorial/example_mix_algo.html">文档</a>] [<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/blob/main/examples/mix_chord/mix_chord_toolace.yaml">ToolACE 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/chord_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">mix_chord</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>REC Series 💡 [<a class="reference external" href="https://arxiv.org/pdf/2509.24203">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/rec_gsm8k">GSM8K 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/rec_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">rec</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>RLOO [<a class="reference external" href="https://arxiv.org/pdf/2402.14740">论文</a>]</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/advantage_fn/rloo_advantage.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">rloo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>REINFORCE++ [<a class="reference external" href="https://arxiv.org/pdf/2501.03262">论文</a>]</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/advantage_fn/reinforce_advantage.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">reinforceplusplus</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>GSPO [<a class="reference external" href="https://arxiv.org/pdf/2507.18071">论文</a>]</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/gspo_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">gspo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>TOPR [<a class="reference external" href="https://arxiv.org/pdf/2503.14286">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/topr_gsm8k">GSM8K 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/topr_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">topr</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>sPPO [<a class="reference external" href="https://arxiv.org/pdf/2108.05828">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/sppo_gsm8k">GSM8K 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/sppo_loss_fn.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">sppo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>AsymRE [<a class="reference external" href="https://arxiv.org/pdf/2506.20520">论文</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/asymre_gsm8k">GSM8K 例子</a>]</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/advantage_fn/asymre_advantage.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">asymre</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>CISPO [<a class="reference external" href="https://arxiv.org/pdf/2506.13585">论文</a>]</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/cispo_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">cispo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>SAPO [<a class="reference external" href="https://arxiv.org/pdf/2511.20347">论文</a>]</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>[<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/trinity/algorithm/policy_loss_fn/sapo_policy_loss.py">代码</a>]</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">algorithm_type:</span> <span class="pre">sapo</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id4">
+<h2>致谢<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>本项目基于许多优秀的开源项目构建，包括：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/volcengine/verl">verl</a>，<a class="reference external" href="https://pytorch.org/docs/stable/fsdp.html">FSDP</a> 和 <a class="reference external" href="https://github.com/NVIDIA/Megatron-LM">Megatron-LM</a> 用于大模型训练；</p></li>
@@ -705,8 +783,8 @@ document.write(`
 <li><p>......</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>引用<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>引用<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">trinity-rft</span><span class="p">,</span>
 <span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{Trinity-RFT: A General-Purpose and Unified Framework for Reinforcement Fine-Tuning of Large Language Models}</span><span class="p">,</span>
 <span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Xuchen Pan and Yanxi Chen and Yushuo Chen and Yuchang Sun and Daoyuan Chen and Wenhao Zhang and Yuexiang Xie and Yilun Huang and Yilei Zhang and Dawei Gao and Yaliang Li and Bolin Ding and Jingren Zhou}</span><span class="p">,</span>
@@ -768,8 +846,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity-rft">💡 什么是 Trinity-RFT？</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔨 教程与指南</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🌟 核心特性</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">致谢</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">引用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🔨 算法支持</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">致谢</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">引用</a></li>
 </ul>
   </nav></div>
 
