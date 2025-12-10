@@ -729,9 +729,12 @@ window.addEventListener("load", load);
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.agents_reward.html">trinity.common.rewards.agents_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.countdown_reward.html">trinity.common.rewards.countdown_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.dapo_reward.html">trinity.common.rewards.dapo_reward module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.eval_utils.html">trinity.common.rewards.eval_utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.format_reward.html">trinity.common.rewards.format_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.human_reward.html">trinity.common.rewards.human_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.math_reward.html">trinity.common.rewards.math_reward module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.naive_dapo_score.html">trinity.common.rewards.naive_dapo_score module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.qwen25_eval.html">trinity.common.rewards.qwen25_eval module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.reward_fn.html">trinity.common.rewards.reward_fn module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.tool_reward.html">trinity.common.rewards.tool_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../build_api/trinity.common.rewards.utils.html">trinity.common.rewards.utils module</a></li>
@@ -762,10 +765,8 @@ window.addEventListener("load", load);
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.annotations.html">trinity.utils.annotations module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.distributed.html">trinity.utils.distributed module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.dlc_utils.html">trinity.utils.dlc_utils module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.eval_utils.html">trinity.utils.eval_utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.log.html">trinity.utils.log module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.lora_utils.html">trinity.utils.lora_utils module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.math_eval_utils.html">trinity.utils.math_eval_utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.monitor.html">trinity.utils.monitor module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.plugin_loader.html">trinity.utils.plugin_loader module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../build_api/trinity.utils.registry.html">trinity.utils.registry module</a></li>
@@ -973,6 +974,13 @@ document.write(`
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 
+<div class="viewcode-block" id="InferenceModel.prepare">
+<a class="viewcode-back" href="../../../../build_api/trinity.common.models.model.html#trinity.common.models.model.InferenceModel.prepare">[文档]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare the model before inference.&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
 <div class="viewcode-block" id="InferenceModel.get_model_version">
 <a class="viewcode-back" href="../../../../build_api/trinity.common.models.model.html#trinity.common.models.model.InferenceModel.get_model_version">[文档]</a>
     <span class="nd">@abstractmethod</span>
@@ -993,7 +1001,7 @@ document.write(`
 
 <div class="viewcode-block" id="InferenceModel.get_api_server_url">
 <a class="viewcode-back" href="../../../../build_api/trinity.common.models.model.html#trinity.common.models.model.InferenceModel.get_api_server_url">[文档]</a>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_api_server_url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_api_server_url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the API server URL if available.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
