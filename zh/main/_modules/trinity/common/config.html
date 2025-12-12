@@ -548,9 +548,11 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_algorithm.html">Algorithm 开发指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/example_mix_algo.html">Algorithm 进阶开发</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_operator.html">Operator 开发指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_selector.html">🧪 实验性功能：任务选择与调度系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/develop_selector.html">🧪 实验性功能：任务选择器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/trinity_configs.html">参数配置指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/trinity_gpu_configs.html">GPU 资源相关配置指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/synchronizer.html">Synchronizer 介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/align_with_verl.html">与 veRL 对齐训练配置</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">样例</span></p>
 <ul class="nav bd-sidenav">
@@ -564,10 +566,11 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/example_dpo.html">离线 DPO 和 SFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/example_megatron.html">Megatron-LM 支持</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/example_data_functionalities.html">数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/example_dataset_perspective.html">样例总览</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">常见问题</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/faq.html">常见问题（FAQ）</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -852,6 +855,21 @@ window.addEventListener("load", load);
 
 
 <div class="article-header-buttons">
+
+
+<a href="https://github.com/modelscope/Trinity-RFT" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -1912,6 +1930,8 @@ document.write(`
                 <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_check_explorer_input</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">trinity.buffer.selector</span><span class="w"> </span><span class="kn">import</span> <span class="n">SELECTORS</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;serve&quot;</span><span class="p">}:</span>
             <span class="c1"># no need to check explorer_input in serve mode</span>
             <span class="k">return</span>
@@ -1951,6 +1971,13 @@ document.write(`
             <span class="n">set_if_none</span><span class="p">(</span><span class="n">taskset</span><span class="o">.</span><span class="n">rollout_args</span><span class="p">,</span> <span class="s2">&quot;logprobs&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">logprobs</span><span class="p">)</span>
             <span class="n">set_if_none</span><span class="p">(</span><span class="n">taskset</span><span class="o">.</span><span class="n">rollout_args</span><span class="p">,</span> <span class="s2">&quot;max_tokens&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">max_response_tokens</span><span class="p">)</span>
             <span class="n">set_if_none</span><span class="p">(</span><span class="n">taskset</span><span class="o">.</span><span class="n">format</span><span class="p">,</span> <span class="s2">&quot;chat_template&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">custom_chat_template</span><span class="p">)</span>
+
+            <span class="c1"># check if selector is supported</span>
+            <span class="n">selector</span> <span class="o">=</span> <span class="n">SELECTORS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">taskset</span><span class="o">.</span><span class="n">task_selector</span><span class="o">.</span><span class="n">selector_type</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">selector</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Selector </span><span class="si">{</span><span class="n">taskset</span><span class="o">.</span><span class="n">task_selector</span><span class="o">.</span><span class="n">selector_type</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span>
+                <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">explorer_input</span><span class="o">.</span><span class="n">eval_tasksets</span><span class="p">):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
@@ -2037,8 +2064,8 @@ document.write(`
         <span class="n">experience_pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_processor</span><span class="o">.</span><span class="n">experience_pipeline</span>
         <span class="k">if</span> <span class="n">experience_pipeline</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;explore&quot;</span><span class="p">,</span> <span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="s2">&quot;serve&quot;</span><span class="p">}:</span>
             <span class="k">if</span> <span class="n">experience_pipeline</span><span class="o">.</span><span class="n">save_input</span> <span class="ow">and</span> <span class="n">experience_pipeline</span><span class="o">.</span><span class="n">input_save_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">experience_pipeline</span><span class="o">.</span><span class="n">input_save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s2">&quot;explorer_output.jsonl&quot;</span>  <span class="c1"># type: ignore[arg-type]</span>
+                <span class="n">experience_pipeline</span><span class="o">.</span><span class="n">input_save_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_storage_path</span><span class="p">(</span>
+                    <span class="n">StorageType</span><span class="o">.</span><span class="n">SQL</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;explorer_output&quot;</span>
                 <span class="p">)</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;Auto set `data_processor.experience_pipeline.input_save_path` to </span><span class="si">{</span><span class="n">experience_pipeline</span><span class="o">.</span><span class="n">input_save_path</span><span class="si">}</span><span class="s2">&quot;</span>
