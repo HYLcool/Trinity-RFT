@@ -8,6 +8,7 @@ Submodules
    :maxdepth: 4
 
    trinity.common.models.vllm_patch.api_patch
+   trinity.common.models.vllm_patch.api_patch_v12
    trinity.common.models.vllm_patch.worker_patch
 
 Module contents
@@ -15,5 +16,5 @@ Module contents
 
 .. automodule:: trinity.common.models.vllm_patch
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

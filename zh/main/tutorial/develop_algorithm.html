@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Algorithm 开发指南 &#8212; Trinity-RFT 0.3.3 文档</title>
+    <title>Algorithm 开发指南 &#8212; Trinity-RFT 0.4.0 文档</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=cfbd4ef8"></script>
+    <script src="../_static/documentation_options.js?v=0a12e38e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.3.3 文档 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.3.3 文档 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.4.0 文档 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.4.0 文档 - Home"/>`);</script>
   
   
 </a></div>
@@ -200,6 +200,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example_react.html">ReAct Agent 训练</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_search_email.html">邮件搜索例子</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_dpo.html">离线 DPO 和 SFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_tinker_backend.html">Tinker 后端</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_megatron.html">Megatron-LM 支持</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_data_functionalities.html">数据处理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_dataset_perspective.html">样例总览</a></li>
@@ -227,7 +228,6 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.buffer.reader.html">trinity.buffer.reader package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.buffer.reader.file_reader.html">trinity.buffer.reader.file_reader module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.buffer.reader.queue_reader.html">trinity.buffer.reader.queue_reader module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.buffer.reader.reader.html">trinity.buffer.reader.reader module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.buffer.reader.sql_reader.html">trinity.buffer.reader.sql_reader module</a></li>
 </ul>
 </details></li>
@@ -262,18 +262,23 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../build_api/trinity.explorer.html">trinity.explorer package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.explorer.api.html">trinity.explorer.api package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.explorer.api.api.html">trinity.explorer.api.api module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.explorer.api.service.html">trinity.explorer.api.service module</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.explorer.proxy.html">trinity.explorer.proxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.explorer.proxy.app.html">trinity.explorer.proxy.app module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.explorer.proxy.client.html">trinity.explorer.proxy.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.explorer.proxy.recorder.html">trinity.explorer.proxy.recorder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.explorer.proxy.service.html">trinity.explorer.proxy.service module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.explorer.explorer.html">trinity.explorer.explorer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.explorer.explorer_client.html">trinity.explorer.explorer_client module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.explorer.scheduler.html">trinity.explorer.scheduler module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.explorer.workflow_runner.html">trinity.explorer.workflow_runner module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../build_api/trinity.trainer.html">trinity.trainer package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.trainer.tinker.html">trinity.trainer.tinker package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.tinker.utils.html">trinity.trainer.tinker.utils module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.trainer.verl.html">trinity.trainer.verl package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.dp_actor.html">trinity.trainer.verl.dp_actor module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.fsdp_checkpoint_manager.html">trinity.trainer.verl.fsdp_checkpoint_manager module</a></li>
@@ -284,6 +289,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.utils.html">trinity.trainer.verl.utils module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.trainer.tinker_trainer.html">trinity.trainer.tinker_trainer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.trainer.trainer.html">trinity.trainer.trainer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.trainer.verl_trainer.html">trinity.trainer.verl_trainer module</a></li>
 </ul>
@@ -294,6 +300,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.asymre_advantage.html">trinity.algorithm.advantage_fn.asymre_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.grpo_advantage.html">trinity.algorithm.advantage_fn.grpo_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.multi_step_grpo_advantage.html">trinity.algorithm.advantage_fn.multi_step_grpo_advantage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.on_policy_distill_advantage.html">trinity.algorithm.advantage_fn.on_policy_distill_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.opmd_advantage.html">trinity.algorithm.advantage_fn.opmd_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.ppo_advantage.html">trinity.algorithm.advantage_fn.ppo_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.rec_advantage.html">trinity.algorithm.advantage_fn.rec_advantage module</a></li>
@@ -316,6 +323,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.cispo_policy_loss.html">trinity.algorithm.policy_loss_fn.cispo_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.dpo_loss.html">trinity.algorithm.policy_loss_fn.dpo_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.gspo_policy_loss.html">trinity.algorithm.policy_loss_fn.gspo_policy_loss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.importance_sampling_policy_loss.html">trinity.algorithm.policy_loss_fn.importance_sampling_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.mix_policy_loss.html">trinity.algorithm.policy_loss_fn.mix_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.opmd_policy_loss.html">trinity.algorithm.policy_loss_fn.opmd_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.policy_loss_fn.policy_loss_fn.html">trinity.algorithm.policy_loss_fn.policy_loss_fn module</a></li>
@@ -358,6 +366,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.vllm_patch.html">trinity.common.models.vllm_patch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.mm_utils.html">trinity.common.models.mm_utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.model.html">trinity.common.models.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.tinker_model.html">trinity.common.models.tinker_model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.utils.html">trinity.common.models.utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.vllm_model.html">trinity.common.models.vllm_model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.vllm_worker.html">trinity.common.models.vllm_worker module</a></li>
@@ -388,6 +397,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.math_rm_workflow.html">trinity.common.workflows.math_rm_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.math_ruler_workflow.html">trinity.common.workflows.math_ruler_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.math_trainable_ruler_workflow.html">trinity.common.workflows.math_trainable_ruler_workflow module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.on_policy_distill_workflow.html">trinity.common.workflows.on_policy_distill_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.rubric_judge_workflow.html">trinity.common.workflows.rubric_judge_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.simple_mm_workflow.html">trinity.common.workflows.simple_mm_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.workflows.step_wise_workflow.html">trinity.common.workflows.step_wise_workflow module</a></li>
@@ -667,9 +677,8 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">calculate_group_advantage</span></code>：此方法计算每组 experience 的优势值。</p></li>
 </ul>
 <p>以下是 OPMD 算法优势函数的实现示例：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">trinity.algorithm.advantage_fn</span><span class="w"> </span><span class="kn">import</span> <span class="n">ADVANTAGE_FN</span><span class="p">,</span> <span class="n">GroupAdvantage</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">trinity.algorithm.advantage_fn</span><span class="w"> </span><span class="kn">import</span> <span class="n">GroupAdvantage</span>
 
-<span class="nd">@ADVANTAGE_FN</span><span class="o">.</span><span class="n">register_module</span><span class="p">(</span><span class="s2">&quot;opmd&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">OPMDGroupAdvantage</span><span class="p">(</span><span class="n">GroupAdvantage</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;OPMD Group Advantage computation&quot;&quot;&quot;</span>
 
@@ -710,7 +719,7 @@ document.write(`
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;opmd_baseline&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;tau&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>实现后，你需要通过 <code class="xref py py-class docutils literal notranslate"><span class="pre">trinity.algorithm.ADVANTAGE_FN</span></code> 注册此模块。注册后，该模块可在配置文件中使用注册名称进行配置。</p>
+<p>实现后，你需要在 <code class="docutils literal notranslate"><span class="pre">trinity/algorithm/__init__.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">default_mapping</span></code> 中注册此模块。注册后，该模块可在配置文件中使用注册名称进行配置。</p>
 </section>
 <section id="policylossfn">
 <h3>步骤 1.2：实现 <code class="docutils literal notranslate"><span class="pre">PolicyLossFn</span></code><a class="headerlink" href="#policylossfn" title="Link to this heading">#</a></h3>
@@ -719,10 +728,9 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">__call__</span></code>：根据输入参数计算损失。与 <code class="docutils literal notranslate"><span class="pre">AdvantageFn</span></code> 不同，这里的输入参数均为 <code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>。该接口会自动扫描 <code class="docutils literal notranslate"><span class="pre">__call__</span></code> 方法的参数列表，并将其转换为 experience 数据中的对应字段。因此，请直接在参数列表中写出损失计算所需的所有张量名称，而不是从 <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> 中选择参数。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">default_args</span></code>：返回默认初始化参数（字典形式），当用户未在配置文件中指定初始化参数时，默认使用此方法返回的参数。</p></li>
 </ul>
-<p>同样，实现后需要通过 <code class="xref py py-class docutils literal notranslate"><span class="pre">trinity.algorithm.POLICY_LOSS_FN</span></code> 注册此模块。</p>
+<p>同样，实现后需要在 <code class="docutils literal notranslate"><span class="pre">trinity/algorithm/policy_loss_fn/__init__.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">default_mapping</span></code> 中注册此模块。</p>
 <p>以下是 OPMD 算法策略损失函数的实现示例。由于 OPMD 的策略损失仅需 logprob、action_mask 和 advantages，因此 <code class="docutils literal notranslate"><span class="pre">__call__</span></code> 方法的参数列表中仅指定这三个项：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@POLICY_LOSS_FN</span><span class="o">.</span><span class="n">register_module</span><span class="p">(</span><span class="s2">&quot;opmd&quot;</span><span class="p">)</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">OPMDPolicyLossFn</span><span class="p">(</span><span class="n">PolicyLossFn</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">OPMDPolicyLossFn</span><span class="p">(</span><span class="n">PolicyLossFn</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;verl&quot;</span><span class="p">,</span> <span class="n">tau</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">loss_agg_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;token-mean&quot;</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -753,7 +761,7 @@ document.write(`
 <section id="id3">
 <h2>步骤 2：注册新算法<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>上述步骤实现了算法所需的组件，但这些组件是分散的，需要在多个地方配置才能生效。</p>
-<p>为简化配置，Trinity-RFT 提供了 <a class="reference internal" href="../build_api/trinity.algorithm.html#trinity.algorithm.AlgorithmType" title="trinity.algorithm.AlgorithmType"><code class="xref py py-class docutils literal notranslate"><span class="pre">trinity.algorithm.AlgorithmType</span></code></a> 来描述完整算法，并在 <code class="xref py py-class docutils literal notranslate"><span class="pre">trinity.algorithm.ALGORITHM_TYPE</span></code> 中注册，实现一键配置。</p>
+<p>为简化配置，Trinity-RFT 提供了 <a class="reference internal" href="../build_api/trinity.algorithm.html#trinity.algorithm.AlgorithmType" title="trinity.algorithm.AlgorithmType"><code class="xref py py-class docutils literal notranslate"><span class="pre">trinity.algorithm.AlgorithmType</span></code></a> 来描述完整算法，并在 <code class="docutils literal notranslate"><span class="pre">trinity/algorithm/__init__.py</span></code> 中注册，实现一键配置。</p>
 <p><code class="docutils literal notranslate"><span class="pre">AlgorithmType</span></code> 类包含以下属性和方法：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">use_critic</span></code>：是否使用 Critic 模型</p></li>
@@ -763,12 +771,11 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">schema</span></code>：算法对应的 experience 数据格式</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">default_config</span></code>：获取算法的默认配置，将覆盖 <code class="docutils literal notranslate"><span class="pre">ALGORITHM_TYPE</span></code> 中同名属性</p></li>
 </ul>
-<p>同样，实现后需要通过 <code class="docutils literal notranslate"><span class="pre">ALGORITHM_TYPE</span></code> 注册此模块。</p>
+<p>同样，实现后需要在 <code class="docutils literal notranslate"><span class="pre">trinity/algorithm/__init__.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">default_mapping</span></code> 中注册此模块。</p>
 <p>以下是 OPMD 算法的实现。
 由于 OPMD 算法不需要使用 Critic 模型，<code class="docutils literal notranslate"><span class="pre">use_critic</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">False</span></code>。
 <code class="docutils literal notranslate"><span class="pre">default_config</span></code> 方法返回的字典表明 OPMD 将使用步骤 1 中实现的 <code class="docutils literal notranslate"><span class="pre">opmd</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">AdvantageFn</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PolicyLossFn</span></code>，不会对奖励应用 KL 惩罚，但在计算最终损失时会添加 <code class="docutils literal notranslate"><span class="pre">k2</span></code> 类型的 KL 损失。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@ALGORITHM_TYPE</span><span class="o">.</span><span class="n">register_module</span><span class="p">(</span><span class="s2">&quot;opmd&quot;</span><span class="p">)</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">OPMDAlgorithm</span><span class="p">(</span><span class="n">AlgorithmType</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">OPMDAlgorithm</span><span class="p">(</span><span class="n">AlgorithmType</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;OPMD algorithm.&quot;&quot;&quot;</span>
 
     <span class="n">use_critic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>

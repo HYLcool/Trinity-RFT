@@ -17,6 +17,7 @@ Submodules
 
    trinity.common.models.mm_utils
    trinity.common.models.model
+   trinity.common.models.tinker_model
    trinity.common.models.utils
    trinity.common.models.vllm_model
    trinity.common.models.vllm_worker
@@ -26,5 +27,5 @@ Module contents
 
 .. automodule:: trinity.common.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>trinity.explorer package &#8212; Trinity-RFT 0.3.3 文档</title>
+    <title>trinity.explorer package &#8212; Trinity-RFT 0.4.0 文档</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=cfbd4ef8"></script>
+    <script src="../_static/documentation_options.js?v=0a12e38e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -44,7 +44,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'build_api/trinity.explorer';</script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="trinity.explorer.api package" href="trinity.explorer.api.html" />
+    <link rel="next" title="trinity.explorer.proxy package" href="trinity.explorer.proxy.html" />
     <link rel="prev" title="trinity.buffer.viewer module" href="trinity.buffer.viewer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.3.3 文档 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.3.3 文档 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.4.0 文档 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.4.0 文档 - Home"/>`);</script>
   
   
 </a></div>
@@ -200,6 +200,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/example_react.html">ReAct Agent 训练</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/example_search_email.html">邮件搜索例子</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/example_dpo.html">离线 DPO 和 SFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/example_tinker_backend.html">Tinker 后端</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/example_megatron.html">Megatron-LM 支持</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/example_data_functionalities.html">数据处理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/example_dataset_perspective.html">样例总览</a></li>
@@ -227,7 +228,6 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="trinity.buffer.reader.html">trinity.buffer.reader package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="trinity.buffer.reader.file_reader.html">trinity.buffer.reader.file_reader module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.buffer.reader.queue_reader.html">trinity.buffer.reader.queue_reader module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.buffer.reader.reader.html">trinity.buffer.reader.reader module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.buffer.reader.sql_reader.html">trinity.buffer.reader.sql_reader module</a></li>
 </ul>
 </details></li>
@@ -262,18 +262,23 @@
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">trinity.explorer package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="trinity.explorer.api.html">trinity.explorer.api package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html">trinity.explorer.api.api module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.service.html">trinity.explorer.api.service module</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="trinity.explorer.proxy.html">trinity.explorer.proxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.app.html">trinity.explorer.proxy.app module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.client.html">trinity.explorer.proxy.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.recorder.html">trinity.explorer.proxy.recorder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.service.html">trinity.explorer.proxy.service module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html">trinity.explorer.explorer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html">trinity.explorer.explorer_client module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.scheduler.html">trinity.explorer.scheduler module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.workflow_runner.html">trinity.explorer.workflow_runner module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="trinity.trainer.html">trinity.trainer package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="trinity.trainer.tinker.html">trinity.trainer.tinker package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="trinity.trainer.tinker.utils.html">trinity.trainer.tinker.utils module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="trinity.trainer.verl.html">trinity.trainer.verl package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="trinity.trainer.verl.dp_actor.html">trinity.trainer.verl.dp_actor module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.trainer.verl.fsdp_checkpoint_manager.html">trinity.trainer.verl.fsdp_checkpoint_manager module</a></li>
@@ -284,6 +289,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.trainer.verl.utils.html">trinity.trainer.verl.utils module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.trainer.tinker_trainer.html">trinity.trainer.tinker_trainer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.trainer.trainer.html">trinity.trainer.trainer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.trainer.verl_trainer.html">trinity.trainer.verl_trainer module</a></li>
 </ul>
@@ -294,6 +300,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.asymre_advantage.html">trinity.algorithm.advantage_fn.asymre_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.grpo_advantage.html">trinity.algorithm.advantage_fn.grpo_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.multi_step_grpo_advantage.html">trinity.algorithm.advantage_fn.multi_step_grpo_advantage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.on_policy_distill_advantage.html">trinity.algorithm.advantage_fn.on_policy_distill_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.opmd_advantage.html">trinity.algorithm.advantage_fn.opmd_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.ppo_advantage.html">trinity.algorithm.advantage_fn.ppo_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.advantage_fn.rec_advantage.html">trinity.algorithm.advantage_fn.rec_advantage module</a></li>
@@ -316,6 +323,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.cispo_policy_loss.html">trinity.algorithm.policy_loss_fn.cispo_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.dpo_loss.html">trinity.algorithm.policy_loss_fn.dpo_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.gspo_policy_loss.html">trinity.algorithm.policy_loss_fn.gspo_policy_loss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.importance_sampling_policy_loss.html">trinity.algorithm.policy_loss_fn.importance_sampling_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.mix_policy_loss.html">trinity.algorithm.policy_loss_fn.mix_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.opmd_policy_loss.html">trinity.algorithm.policy_loss_fn.opmd_policy_loss module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.algorithm.policy_loss_fn.policy_loss_fn.html">trinity.algorithm.policy_loss_fn.policy_loss_fn module</a></li>
@@ -358,6 +366,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.vllm_patch.html">trinity.common.models.vllm_patch package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.mm_utils.html">trinity.common.models.mm_utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.model.html">trinity.common.models.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.common.models.tinker_model.html">trinity.common.models.tinker_model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.utils.html">trinity.common.models.utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.vllm_model.html">trinity.common.models.vllm_model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.vllm_worker.html">trinity.common.models.vllm_worker module</a></li>
@@ -388,6 +397,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.math_rm_workflow.html">trinity.common.workflows.math_rm_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.math_ruler_workflow.html">trinity.common.workflows.math_ruler_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.math_trainable_ruler_workflow.html">trinity.common.workflows.math_trainable_ruler_workflow module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.on_policy_distill_workflow.html">trinity.common.workflows.on_policy_distill_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.rubric_judge_workflow.html">trinity.common.workflows.rubric_judge_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.simple_mm_workflow.html">trinity.common.workflows.simple_mm_workflow module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.workflows.step_wise_workflow.html">trinity.common.workflows.step_wise_workflow module</a></li>
@@ -618,21 +628,22 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-trinity.explorer">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer"><code class="docutils literal notranslate"><span class="pre">Explorer</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.__init__"><code class="docutils literal notranslate"><span class="pre">Explorer.__init__()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.setup_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_weight_sync_group()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.prepare"><code class="docutils literal notranslate"><span class="pre">Explorer.prepare()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.get_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.get_weight()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.benchmark"><code class="docutils literal notranslate"><span class="pre">Explorer.benchmark()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.eval"><code class="docutils literal notranslate"><span class="pre">Explorer.eval()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.explore"><code class="docutils literal notranslate"><span class="pre">Explorer.explore()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.explore_step"><code class="docutils literal notranslate"><span class="pre">Explorer.explore_step()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_sync"><code class="docutils literal notranslate"><span class="pre">Explorer.need_sync()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_eval"><code class="docutils literal notranslate"><span class="pre">Explorer.need_eval()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.eval"><code class="docutils literal notranslate"><span class="pre">Explorer.eval()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.benchmark"><code class="docutils literal notranslate"><span class="pre">Explorer.benchmark()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Explorer.save_checkpoint()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.sync_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.sync_weight()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.shutdown"><code class="docutils literal notranslate"><span class="pre">Explorer.shutdown()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.is_alive"><code class="docutils literal notranslate"><span class="pre">Explorer.is_alive()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.serve"><code class="docutils literal notranslate"><span class="pre">Explorer.serve()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.get_actor"><code class="docutils literal notranslate"><span class="pre">Explorer.get_actor()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.get_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.get_weight()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.is_alive"><code class="docutils literal notranslate"><span class="pre">Explorer.is_alive()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_eval"><code class="docutils literal notranslate"><span class="pre">Explorer.need_eval()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_sync"><code class="docutils literal notranslate"><span class="pre">Explorer.need_sync()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.prepare"><code class="docutils literal notranslate"><span class="pre">Explorer.prepare()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Explorer.save_checkpoint()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.serve"><code class="docutils literal notranslate"><span class="pre">Explorer.serve()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.setup_model_level_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_model_level_weight_sync_group()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.setup_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_weight_sync_group()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.shutdown"><code class="docutils literal notranslate"><span class="pre">Explorer.shutdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.sync_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.sync_weight()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -654,24 +665,24 @@ document.write(`
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="trinity.explorer.api.html">trinity.explorer.api package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trinity.explorer.api.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.api.api.html">trinity.explorer.api.api module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html#trinity.explorer.api.api.chat_completions"><code class="docutils literal notranslate"><span class="pre">chat_completions()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html#trinity.explorer.api.api.show_available_models"><code class="docutils literal notranslate"><span class="pre">show_available_models()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html#trinity.explorer.api.api.health"><code class="docutils literal notranslate"><span class="pre">health()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html#trinity.explorer.api.api.metrics"><code class="docutils literal notranslate"><span class="pre">metrics()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html#trinity.explorer.api.api.serve_http"><code class="docutils literal notranslate"><span class="pre">serve_http()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.api.html#trinity.explorer.api.api.run_app"><code class="docutils literal notranslate"><span class="pre">run_app()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="trinity.explorer.proxy.html">trinity.explorer.proxy package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trinity.explorer.proxy.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.proxy.app.html">trinity.explorer.proxy.app module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.proxy.client.html">trinity.explorer.proxy.client module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.client.html#trinity.explorer.proxy.client.TrinityClient"><code class="docutils literal notranslate"><span class="pre">TrinityClient</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.api.service.html">trinity.explorer.api.service module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.api.service.html#trinity.explorer.api.service.ExplorerService"><code class="docutils literal notranslate"><span class="pre">ExplorerService</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.proxy.recorder.html">trinity.explorer.proxy.recorder module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.recorder.html#trinity.explorer.proxy.recorder.HistoryRecorder"><code class="docutils literal notranslate"><span class="pre">HistoryRecorder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.proxy.service.html">trinity.explorer.proxy.service module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trinity.explorer.proxy.service.html#trinity.explorer.proxy.service.ExplorerService"><code class="docutils literal notranslate"><span class="pre">ExplorerService</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="trinity.explorer.api.html#module-trinity.explorer.api">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trinity.explorer.proxy.html#module-trinity.explorer.proxy">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -685,6 +696,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer"><code class="docutils literal notranslate"><span class="pre">Explorer</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.__init__"><code class="docutils literal notranslate"><span class="pre">Explorer.__init__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.setup_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_weight_sync_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.setup_model_level_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_model_level_weight_sync_group()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.prepare"><code class="docutils literal notranslate"><span class="pre">Explorer.prepare()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.get_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.get_weight()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.explore"><code class="docutils literal notranslate"><span class="pre">Explorer.explore()</span></code></a></li>
@@ -699,18 +711,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.is_alive"><code class="docutils literal notranslate"><span class="pre">Explorer.is_alive()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.serve"><code class="docutils literal notranslate"><span class="pre">Explorer.serve()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html#trinity.explorer.explorer.Explorer.get_actor"><code class="docutils literal notranslate"><span class="pre">Explorer.get_actor()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="trinity.explorer.explorer_client.html">trinity.explorer.explorer_client module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient"><code class="docutils literal notranslate"><span class="pre">ExplorerClient</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient.__init__"><code class="docutils literal notranslate"><span class="pre">ExplorerClient.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient.init_session"><code class="docutils literal notranslate"><span class="pre">ExplorerClient.init_session()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient.get_openai_client"><code class="docutils literal notranslate"><span class="pre">ExplorerClient.get_openai_client()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient.get_openai_async_client"><code class="docutils literal notranslate"><span class="pre">ExplorerClient.get_openai_async_client()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient.feedback"><code class="docutils literal notranslate"><span class="pre">ExplorerClient.feedback()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer_client.html#trinity.explorer.explorer_client.ExplorerClient.feedback_async"><code class="docutils literal notranslate"><span class="pre">ExplorerClient.feedback_async()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -784,7 +784,7 @@ document.write(`
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-trinity.explorer" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="trinity.explorer.Explorer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.explorer.</span></span><span class="sig-name descname"><span class="pre">Explorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="trinity.common.config.html#trinity.common.config.Config" title="trinity.common.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.explorer.</span></span><span class="sig-name descname"><span class="pre">Explorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="trinity.common.config.html#trinity.common.config.Config" title="trinity.common.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer" title="Link to this definition">#</a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Responsible for exploring the taskset.</p>
 <dl class="py method">
@@ -793,25 +793,20 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.setup_weight_sync_group">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setup_weight_sync_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_dict_meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.setup_weight_sync_group"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.setup_weight_sync_group" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.prepare">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prepare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.prepare"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.prepare" title="Link to this definition">#</a></dt>
-<dd><p>Preparation before running.</p>
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.benchmark">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">benchmark</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.benchmark"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.benchmark" title="Link to this definition">#</a></dt>
+<dd><p>Benchmark the model checkpoints.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.get_weight">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.get_weight"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.get_weight" title="Link to this definition">#</a></dt>
-<dd><p>Get the weight of the loaded model (For checkpoint weights update).</p>
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.eval">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.eval"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.eval" title="Link to this definition">#</a></dt>
+<dd><p>Evaluation on all evaluation data samples.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trinity.explorer.Explorer.explore">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">explore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.explore"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.explore" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">explore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.explore"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.explore" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>The timeline of the exploration process:</dt><dd><div class="line-block">
 <div class="line">&lt;--------------------------------- one period -------------------------------------&gt; |</div>
@@ -837,13 +832,26 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trinity.explorer.Explorer.explore_step">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">explore_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.explore_step"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.explore_step" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">explore_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.explore_step"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.explore_step" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.need_sync">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">need_sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.need_sync"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.need_sync" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.get_actor">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="trinity.common.config.html#trinity.common.config.Config" title="trinity.common.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.get_actor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.get_actor" title="Link to this definition">#</a></dt>
+<dd><p>Get a Ray actor for the explorer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.get_weight">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.get_weight"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.get_weight" title="Link to this definition">#</a></dt>
+<dd><p>Get the weight of the loaded model (For checkpoint weights update).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.is_alive">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_alive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.is_alive"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.is_alive" title="Link to this definition">#</a></dt>
+<dd><p>Check if the explorer is alive.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trinity.explorer.Explorer.need_eval">
@@ -851,42 +859,24 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.eval">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.eval"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.eval" title="Link to this definition">#</a></dt>
-<dd><p>Evaluation on all evaluation data samples.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.need_sync">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">need_sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.need_sync"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.need_sync" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.benchmark">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">benchmark</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.benchmark"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.benchmark" title="Link to this definition">#</a></dt>
-<dd><p>Benchmark the model checkpoints.</p>
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.prepare">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prepare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.prepare"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.prepare" title="Link to this definition">#</a></dt>
+<dd><p>Preparation before running.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trinity.explorer.Explorer.save_checkpoint">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sync_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.save_checkpoint"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.save_checkpoint" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sync_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.save_checkpoint"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.save_checkpoint" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.sync_weight">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sync_weight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.sync_weight"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.sync_weight" title="Link to this definition">#</a></dt>
-<dd><p>Synchronize model weights.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.shutdown">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.shutdown"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.shutdown" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.is_alive">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_alive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.is_alive"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.is_alive" title="Link to this definition">#</a></dt>
-<dd><p>Check if the explorer is alive.</p>
-</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trinity.explorer.Explorer.serve">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.serve"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.serve" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.serve"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.serve" title="Link to this definition">#</a></dt>
 <dd><p>Run the explorer in serving mode.</p>
 <p>In serving mode, the explorer starts an OpenAI compatible server to handle requests.
 Agent applications can be deployed separately and interact with the explorer via the API.</p>
@@ -906,9 +896,25 @@ Agent applications can be deployed separately and interact with the explorer via
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="trinity.explorer.Explorer.get_actor">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="trinity.common.config.html#trinity.common.config.Config" title="trinity.common.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.get_actor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.get_actor" title="Link to this definition">#</a></dt>
-<dd><p>Get a Ray actor for the explorer.</p>
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.setup_model_level_weight_sync_group">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setup_model_level_weight_sync_group</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.setup_model_level_weight_sync_group"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.setup_model_level_weight_sync_group" title="Link to this definition">#</a></dt>
+<dd><p>Setup process group for each model, only used in serve mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.setup_weight_sync_group">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setup_weight_sync_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_dict_meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.setup_weight_sync_group"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.setup_weight_sync_group" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.shutdown">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.shutdown"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.shutdown" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.explorer.Explorer.sync_weight">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sync_weight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/explorer/explorer.html#Explorer.sync_weight"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#trinity.explorer.Explorer.sync_weight" title="Link to this definition">#</a></dt>
+<dd><p>Synchronize model weights.</p>
 </dd></dl>
 
 </dd></dl>
@@ -937,11 +943,11 @@ Agent applications can be deployed separately and interact with the explorer via
       </div>
     </a>
     <a class="right-next"
-       href="trinity.explorer.api.html"
+       href="trinity.explorer.proxy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">trinity.explorer.api package</p>
+        <p class="prev-next-title">trinity.explorer.proxy package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -966,21 +972,22 @@ Agent applications can be deployed separately and interact with the explorer via
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-trinity.explorer">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer"><code class="docutils literal notranslate"><span class="pre">Explorer</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.__init__"><code class="docutils literal notranslate"><span class="pre">Explorer.__init__()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.setup_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_weight_sync_group()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.prepare"><code class="docutils literal notranslate"><span class="pre">Explorer.prepare()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.get_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.get_weight()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.benchmark"><code class="docutils literal notranslate"><span class="pre">Explorer.benchmark()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.eval"><code class="docutils literal notranslate"><span class="pre">Explorer.eval()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.explore"><code class="docutils literal notranslate"><span class="pre">Explorer.explore()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.explore_step"><code class="docutils literal notranslate"><span class="pre">Explorer.explore_step()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_sync"><code class="docutils literal notranslate"><span class="pre">Explorer.need_sync()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_eval"><code class="docutils literal notranslate"><span class="pre">Explorer.need_eval()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.eval"><code class="docutils literal notranslate"><span class="pre">Explorer.eval()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.benchmark"><code class="docutils literal notranslate"><span class="pre">Explorer.benchmark()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Explorer.save_checkpoint()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.sync_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.sync_weight()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.shutdown"><code class="docutils literal notranslate"><span class="pre">Explorer.shutdown()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.is_alive"><code class="docutils literal notranslate"><span class="pre">Explorer.is_alive()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.serve"><code class="docutils literal notranslate"><span class="pre">Explorer.serve()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.get_actor"><code class="docutils literal notranslate"><span class="pre">Explorer.get_actor()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.get_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.get_weight()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.is_alive"><code class="docutils literal notranslate"><span class="pre">Explorer.is_alive()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_eval"><code class="docutils literal notranslate"><span class="pre">Explorer.need_eval()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.need_sync"><code class="docutils literal notranslate"><span class="pre">Explorer.need_sync()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.prepare"><code class="docutils literal notranslate"><span class="pre">Explorer.prepare()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Explorer.save_checkpoint()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.serve"><code class="docutils literal notranslate"><span class="pre">Explorer.serve()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.setup_model_level_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_model_level_weight_sync_group()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.setup_weight_sync_group"><code class="docutils literal notranslate"><span class="pre">Explorer.setup_weight_sync_group()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.shutdown"><code class="docutils literal notranslate"><span class="pre">Explorer.shutdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.explorer.Explorer.sync_weight"><code class="docutils literal notranslate"><span class="pre">Explorer.sync_weight()</span></code></a></li>
 </ul>
 </li>
 </ul>
