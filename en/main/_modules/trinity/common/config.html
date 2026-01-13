@@ -1236,6 +1236,8 @@ document.write(`
     <span class="n">total_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># automatically set</span>
     <span class="c1"># ! DO NOT SET, automatically set from buffer.total_steps</span>
     <span class="n">total_steps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># automatically set</span>
+    <span class="c1"># ! DO NOT SET, automatically set form ray_namespace</span>
+    <span class="n">ray_namespace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="TasksetConfig.to_storage_config">
 <a class="viewcode-back" href="../../../build_api/trinity.common.config.html#trinity.common.config.TasksetConfig.to_storage_config">[docs]</a>
@@ -1262,6 +1264,7 @@ document.write(`
             <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
             <span class="n">total_epochs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">total_epochs</span><span class="p">,</span>
             <span class="n">total_steps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">total_steps</span><span class="p">,</span>
+            <span class="n">ray_namespace</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ray_namespace</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">storage_config</span></div>
 </div>
@@ -1305,6 +1308,8 @@ document.write(`
     <span class="n">total_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># automatically set</span>
     <span class="c1"># ! DO NOT SET, automatically set from buffer.total_steps</span>
     <span class="n">total_steps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># automatically set</span>
+    <span class="c1"># ! DO NOT SET, automatically set form ray_namespace</span>
+    <span class="n">ray_namespace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="ExperienceBufferConfig.to_storage_config">
 <a class="viewcode-back" href="../../../build_api/trinity.common.config.html#trinity.common.config.ExperienceBufferConfig.to_storage_config">[docs]</a>
@@ -1328,6 +1333,7 @@ document.write(`
             <span class="n">tokenizer_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer_path</span><span class="p">,</span>
             <span class="n">total_epochs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">total_epochs</span><span class="p">,</span>
             <span class="n">total_steps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">total_steps</span><span class="p">,</span>
+            <span class="n">ray_namespace</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ray_namespace</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">storage_config</span></div>
 </div>
@@ -1551,9 +1557,11 @@ document.write(`
 
     <span class="c1"># ! DO NOT SET</span>
     <span class="n">bundle_indices</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ray_namespace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># ! DO NOT SET, automatically set from model.lora_configs</span>
     <span class="n">enable_lora</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enable_runtime_lora_updating</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">lora_modules</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">lora_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
@@ -2259,6 +2267,11 @@ document.write(`
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">explorer</span><span class="o">.</span><span class="n">rollout_model</span><span class="o">.</span><span class="n">engine_type</span> <span class="o">!=</span> <span class="s2">&quot;tinker&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">explorer</span><span class="o">.</span><span class="n">rollout_model</span><span class="o">.</span><span class="n">engine_type</span> <span class="o">=</span> <span class="s2">&quot;tinker&quot;</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Rollout model engine type is set to `tinker`.&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">aux_model_config</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">explorer</span><span class="o">.</span><span class="n">auxiliary_models</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">aux_model_config</span><span class="o">.</span><span class="n">engine_type</span> <span class="o">!=</span> <span class="s2">&quot;tinker&quot;</span><span class="p">:</span>
+                <span class="n">aux_model_config</span><span class="o">.</span><span class="n">engine_type</span> <span class="o">=</span> <span class="s2">&quot;tinker&quot;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Auxiliary model engine type is set to `tinker`.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">trainer_type</span> <span class="o">!=</span> <span class="s2">&quot;tinker&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">trainer_type</span> <span class="o">=</span> <span class="s2">&quot;tinker&quot;</span>
