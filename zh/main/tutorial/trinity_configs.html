@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>参数配置指南 &#8212; Trinity-RFT 0.4.0 文档</title>
+    <title>参数配置指南 &#8212; Trinity-RFT 0.5.0.dev0 文档</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=0a12e38e"></script>
+    <script src="../_static/documentation_options.js?v=19b008a8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.4.0 文档 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.4.0 文档 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.0.dev0 文档 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.5.0.dev0 文档 - Home"/>`);</script>
   
   
 </a></div>
@@ -189,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="trinity_gpu_configs.html">GPU 资源相关配置指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronizer.html">Synchronizer 介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="align_with_verl.html">与 veRL 对齐训练配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_reference.html">监控指标解释</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">样例</span></p>
 <ul class="nav bd-sidenav">
@@ -356,6 +357,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.manager.config_registry.trainer_config_manager.html">trinity.manager.config_registry.trainer_config_manager module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.checkpoint_converter.html">trinity.manager.checkpoint_converter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.config_manager.html">trinity.manager.config_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.state_manager.html">trinity.manager.state_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.synchronizer.html">trinity.manager.synchronizer module</a></li>
@@ -405,6 +407,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config.html">trinity.common.config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config_validator.html">trinity.common.config_validator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.constants.html">trinity.common.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.experience.html">trinity.common.experience module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.verl_config.html">trinity.common.verl_config module</a></li>
@@ -503,7 +506,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/modelscope/Trinity-RFT" target="_blank"
+<a href="https://github.com/agentscope-ai/Trinity-RFT" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="源码库"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -710,7 +713,7 @@ document.write(`
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
-<p>每个部分将在下文详细说明。关于此处未涵盖的具体参数的更多细节，请参考<a class="reference external" href="https://github.com/modelscope/Trinity-RFT/blob/main/trinity/common/config.py">源码</a>。</p>
+<p>每个部分将在下文详细说明。关于此处未涵盖的具体参数的更多细节，请参考<a class="reference external" href="https://github.com/agentscope-ai/Trinity-RFT/blob/main/trinity/common/config.py">源码</a>。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>Trinity-RFT 使用<a class="reference external" href="https://omegaconf.readthedocs.io/en/latest/">OmegaConf</a> 来加载 YAML 配置文件。
@@ -726,6 +729,7 @@ document.write(`
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
 <span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">both</span>
 <span class="nt">checkpoint_root_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${oc.env:TRINITY_CHECKPOINT_ROOT_DIR,./checkpoints}</span><span class="w">   </span><span class="c1"># TRINITY_CHECKPOINT_ROOT_DIR 是预先设置的环境变量</span>
+<span class="nt">ignore_validator_suggestions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -742,6 +746,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">checkpoint_root_dir</span></code>: 所有检查点和日志的根目录。该实验的检查点将存储在 <code class="docutils literal notranslate"><span class="pre">&lt;checkpoint_root_dir&gt;/&lt;project&gt;/&lt;name&gt;/</span></code> 路径下。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">continue_from_checkpoint</span></code>: 若设置为 <code class="docutils literal notranslate"><span class="pre">true</span></code>，实验将从检查点路径中的最新检查点继续；否则，会将当前实验重命名为 <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_&lt;timestamp&gt;</span></code> 并启动新实验。由于我们的分离式设计，从检查点恢复的时候，我们只能保证Trainer的模型参数以及其使用的可选缓冲区（<code class="docutils literal notranslate"><span class="pre">auxiliary_buffers</span></code>）可以恢复到最新检查点的状态，而Explorer和Experience Buffer不能保证恢复到同一时点。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ray_namespace</span></code>: 当前实验中启动模块的命名空间。若未指定，则默认为 <code class="docutils literal notranslate"><span class="pre">&lt;project&gt;/&lt;name&gt;</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignore_validator_suggestions</span></code>：如果设置为<code class="docutils literal notranslate"><span class="pre">false</span></code>，配置验证器将检查GPU内存使用情况，并提出配置更改建议。如果设置为<code class="docutils literal notranslate"><span class="pre">true</span></code>，验证器将不检查GPU内存使用情况。默认值为<code class="docutils literal notranslate"><span class="pre">false</span></code>。</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -753,7 +758,7 @@ document.write(`
 <span class="w">  </span><span class="nt">repeat_times</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
 <span class="w">  </span><span class="nt">optimizer</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">lr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-6</span>
-<span class="w">    </span><span class="nt">warmup_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constant</span>
+<span class="w">    </span><span class="nt">lr_scheduler_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constant</span>
 <span class="w">  </span><span class="c1"># 以下参数为可选</span>
 <span class="w">  </span><span class="c1"># 若未指定，将根据 `algorithm_type` 自动设置</span>
 <span class="w">  </span><span class="nt">sample_strategy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
@@ -769,7 +774,8 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code>: Actor 优化器的参数。</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lr</span></code>: 优化器的学习率。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">warmup_style</span></code>: 学习率的预热策略。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warmup_style</span></code>：已弃用，请改用 <code class="docutils literal notranslate"><span class="pre">lr_scheduler_type</span></code>。该域将会在未来版本中移除。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_scheduler_type</span></code>：Actor 模型的学习率调度器类型。默认值为 <code class="docutils literal notranslate"><span class="pre">constant</span></code>。支持类型：<code class="docutils literal notranslate"><span class="pre">constant</span></code>、<code class="docutils literal notranslate"><span class="pre">cosine</span></code>。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sample_strategy</span></code>: 从 experience buffer 加载 experience 时使用的采样策略。支持类型：<code class="docutils literal notranslate"><span class="pre">default</span></code>、<code class="docutils literal notranslate"><span class="pre">staleness_control</span></code>、<code class="docutils literal notranslate"><span class="pre">mix</span></code>。</p></li>
@@ -1085,6 +1091,8 @@ document.write(`
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">explorer</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">explorer</span>
 <span class="w">  </span><span class="nt">runner_per_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="w">  </span><span class="nt">concurrent_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sequential</span>
+<span class="w">  </span><span class="nt">max_repeat_times_per_runner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 <span class="w">  </span><span class="nt">max_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
 <span class="w">  </span><span class="nt">max_retry_times</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">  </span><span class="nt">env_vars</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
@@ -1110,6 +1118,14 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: explorer 的名称。该名称将用作 Ray actor 的名称，因此必须唯一。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">runner_per_model</span></code>: 每个推理引擎实例所服务的 WorkflowRunner 数量。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">concurrent_mode</span></code>: 执行一组任务（例如 GRPO 算法中对一个任务的多次重复执行）的并发模式。支持如下选项：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sequential</span></code>: 顺序执行（默认）。每次执行一个任务，等待其完成后再执行下一个任务。对 workflow 的实现要求最低，但吞吐量也最差。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asynchronous</span></code>: 异步执行。使用异步模式一次性提交所有任务，并在任务完成后收集结果。要求 workflow 正确地实现了异步调用接口，并且 workflow 之间没有共享状态，以避免竞态条件。吞吐量优于顺序执行，但具体性能受限于 workflow 的实现。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multi-threading</span></code>: 多线程执行。使用多线程同时执行多个任务。需要确保 workflow 的实现是线程安全的，以避免竞态条件。吞吐量通常优于顺序执行，但可能低于异步执行，具体取决于工作流的实现和系统资源。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_repeat_times_per_runner</span></code>: 将本来需要重复执行 <code class="docutils literal notranslate"><span class="pre">algorithm.repeat_times</span></code> 次的任务切分为多个子任务，每个子任务的 <code class="docutils literal notranslate"><span class="pre">repeat_times</span></code> 不超过该值，仅适用于 GRPO 类算法。如果未设置，则不限制重复次数。推荐在 <code class="docutils literal notranslate"><span class="pre">concurrent_mode</span></code> 为 <code class="docutils literal notranslate"><span class="pre">sequential</span></code> 时使用此参数，以避免单个 WorkflowRunner 长时间占用资源。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_timeout</span></code>: 等待 Workflow 完成的最大时间（秒）。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_retry_times</span></code>: Workflow 失败或超时情况下的最大重试次数。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">env_vars</span></code>: 为每个 WorkflowRunner 设置的环境变量。</p></li>
@@ -1181,6 +1197,7 @@ document.write(`
 <span class="w">  </span><span class="nt">use_dynamic_bsz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">max_token_len_per_gpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16384</span>
 <span class="w">  </span><span class="nt">ulysses_sequence_parallel_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">max_checkpoints_to_keep</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">  </span><span class="nt">trainer_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 </pre></div>
 </div>
@@ -1215,6 +1232,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">use_dynamic_bsz</span></code>: 是否使用动态批量大小。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_token_len_per_gpu</span></code>: 训练过程中，每个 GPU 最大 token 长度; 当 <code class="docutils literal notranslate"><span class="pre">use_dynamic_bsz=true</span></code> 时生效。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ulysses_sequence_parallel_size</span></code>: 序列并行的并行度，即用于分割单个序列的 GPU 数量。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_checkpoints_to_keep</span></code>: 保留的最大检查点数量。超过此数量后，最旧的检查点将被删除。如果未指定，则将保留所有检查点。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">trainer_config</span></code>: 内联提供的 trainer 配置。</p></li>
 </ul>
 </section>

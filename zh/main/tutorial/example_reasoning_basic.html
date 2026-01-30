@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>快速上手 &#8212; Trinity-RFT 0.4.0 文档</title>
+    <title>快速上手 &#8212; Trinity-RFT 0.5.0.dev0 文档</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=0a12e38e"></script>
+    <script src="../_static/documentation_options.js?v=19b008a8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -45,7 +45,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Off-Policy RFT" href="example_reasoning_advanced.html" />
-    <link rel="prev" title="与 veRL 对齐训练配置" href="align_with_verl.html" />
+    <link rel="prev" title="监控指标解释" href="metrics_reference.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
   </head>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.4.0 文档 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.4.0 文档 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.0.dev0 文档 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.5.0.dev0 文档 - Home"/>`);</script>
   
   
 </a></div>
@@ -189,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="trinity_gpu_configs.html">GPU 资源相关配置指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronizer.html">Synchronizer 介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="align_with_verl.html">与 veRL 对齐训练配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_reference.html">监控指标解释</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">样例</span></p>
 <ul class="current nav bd-sidenav">
@@ -356,6 +357,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.manager.config_registry.trainer_config_manager.html">trinity.manager.config_registry.trainer_config_manager module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.checkpoint_converter.html">trinity.manager.checkpoint_converter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.config_manager.html">trinity.manager.config_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.state_manager.html">trinity.manager.state_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.synchronizer.html">trinity.manager.synchronizer module</a></li>
@@ -405,6 +407,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config.html">trinity.common.config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config_validator.html">trinity.common.config_validator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.constants.html">trinity.common.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.experience.html">trinity.common.experience module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.verl_config.html">trinity.common.verl_config module</a></li>
@@ -503,7 +506,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/modelscope/Trinity-RFT" target="_blank"
+<a href="https://github.com/agentscope-ai/Trinity-RFT" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="源码库"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -631,6 +634,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">运行实验</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hugging-face">进阶选项：将检查点转换为 Hugging Face 格式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">何时需要转换？</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity-convert">转换工具：<code class="docutils literal notranslate"><span class="pre">trinity</span> <span class="pre">convert</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">✅ 批量转换（推荐）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">✅ 单步转换</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">✅ 路径容错</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">特殊情况：缺少基础模型配置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">注意事项</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sft-warmup-rft">进阶选项：带 SFT warmup 的 RFT</a></li>
 </ul>
             </nav>
@@ -682,7 +697,7 @@ huggingface-cli<span class="w"> </span>download<span class="w"> </span>openai/gs
 </section>
 <section id="grpo">
 <h3>使用 GRPO 算法<a class="headerlink" href="#grpo" title="Link to this heading">#</a></h3>
-<p>本实验使用 <a class="reference external" href="https://github.com/modelscope/Trinity-RFT/tree/main/examples/grpo_gsm8k/gsm8k.yaml"><code class="docutils literal notranslate"><span class="pre">gsm8k.yaml</span></code></a> 中的配置。以下是 <code class="docutils literal notranslate"><span class="pre">gsm8k.yaml</span></code> 中一些重要配置项：</p>
+<p>本实验使用 <a class="reference external" href="https://github.com/agentscope-ai/Trinity-RFT/tree/main/examples/grpo_gsm8k/gsm8k.yaml"><code class="docutils literal notranslate"><span class="pre">gsm8k.yaml</span></code></a> 中的配置。以下是 <code class="docutils literal notranslate"><span class="pre">gsm8k.yaml</span></code> 中一些重要配置项：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;project_name&gt;</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;experiment_name&gt;</span>
 <span class="nt">checkpoint_root_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${oc.env:TRINITY_CHECKPOINT_ROOT_DIR,./checkpoints}</span>
@@ -750,6 +765,104 @@ huggingface-cli<span class="w"> </span>download<span class="w"> </span>openai/gs
 </div>
 </section>
 </section>
+<section id="hugging-face">
+<h2>进阶选项：将检查点转换为 Hugging Face 格式<a class="headerlink" href="#hugging-face" title="Link to this heading">#</a></h2>
+<p>在运行 Trinity-RFT 进行实验后，系统会自动将训练过程中的检查点（checkpoint）保存到以下路径：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>${checkpoint_root_dir}/${project}/${name}
+</pre></div>
+</div>
+<p>该目录的结构如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>${checkpoint_root_dir}/${project}/${name}
+├── buffer
+│   ├── experience_buffer.jsonl          # 存储训练过程中生成的经验数据
+│   └── explorer_output.db               # Explorer 模块输出的数据库文件
+├── log                                  # 包含多个 Ray Actor 的日志
+│   ├── checkpoint_monitor.log
+│   ├── explorer.log
+│   ├── explorer_experience_pipeline.log
+│   ├── explorer_runner_0.log  ...  explorer_runner_31.log
+│   ├── queue_experience_buffer.log
+│   └── synchronizer.log
+├── monitor                              # 监控相关文件（可能为空）
+├── global_step_58                       # 示例：第 58 步的完整检查点
+│   └── actor
+│       ├── huggingface                  # （可选）Hugging Face 格式的模型文件
+│       │   ├── added_tokens.json
+│       │   ├── chat_template.jinja
+│       │   ├── config.json
+│       │   ├── generation_config.json
+│       │   ├── merges.txt
+│       │   ├── model.safetensors        # ← 关键模型权重文件
+│       │   ├── special_tokens_map.json
+│       │   ├── tokenizer.json
+│       │   ├── tokenizer_config.json
+│       │   └── vocab.json
+│       ├── extra_state_world_size_4_rank_0.pt  # 额外状态（如随机数种子等）
+│       ├── ...
+│       ├── fsdp_config.json             # FSDP 配置文件
+│       ├── model_world_size_4_rank_0.pt ... model_world_size_4_rank_3.pt  # 分片模型参数
+│       ├── optim_world_size_4_rank_0.pt ... optim_world_size_4_rank_3.pt  # 分片优化器状态
+│       └── ...
+├── explorer_meta.json                   # Explorer 模块的元数据
+├── trainer_meta.json                    # Trainer 模块的元数据
+├── latest_checkpointed_iteration.txt    # 最近一次完整检查点的训练步数
+└── latest_state_dict_iteration.txt      # 最近一次保存模型参数的训练步数（用于 checkpoint 同步）
+</pre></div>
+</div>
+<section id="id6">
+<h3>何时需要转换？<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>如果你希望使用 <strong>Hugging Face 格式</strong> 的模型（例如用于推理或部署），但发现 <code class="docutils literal notranslate"><span class="pre">global_step_*/actor/huggingface/</span></code> 目录中 <strong>缺少 <code class="docutils literal notranslate"><span class="pre">model.safetensors</span></code> 文件</strong>，就需要手动执行转换。</p>
+</section>
+<section id="trinity-convert">
+<h3>转换工具：<code class="docutils literal notranslate"><span class="pre">trinity</span> <span class="pre">convert</span></code><a class="headerlink" href="#trinity-convert" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">trinity</span> <span class="pre">convert</span></code> 命令提供了灵活的模型转换功能，支持以下几种使用方式：</p>
+<section id="id7">
+<h4>✅ 批量转换（推荐）<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>将 <code class="docutils literal notranslate"><span class="pre">--checkpoint-dir</span></code> 指向项目根目录（即包含多个 <code class="docutils literal notranslate"><span class="pre">global_step_*</span></code> 子目录的路径），工具会<strong>自动递归查找所有 <code class="docutils literal notranslate"><span class="pre">global_step_*</span></code> 目录</strong>，并对每个检查点执行转换。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>trinity<span class="w"> </span>convert<span class="w"> </span>--checkpoint-dir<span class="w"> </span><span class="si">${</span><span class="nv">checkpoint_root_dir</span><span class="si">}</span>/<span class="si">${</span><span class="nv">project</span><span class="si">}</span>/<span class="si">${</span><span class="nv">name</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>该命令会：</p>
+<ul class="simple">
+<li><p>自动识别所有形如 <code class="docutils literal notranslate"><span class="pre">global_step_数字</span></code> 的子目录；</p></li>
+<li><p>对每个子目录中的 <code class="docutils literal notranslate"><span class="pre">actor</span></code> 模型进行转换；</p></li>
+<li><p>将生成的 Hugging Face 格式文件（包括 <code class="docutils literal notranslate"><span class="pre">model.safetensors</span></code> 等）保存到对应的 <code class="docutils literal notranslate"><span class="pre">actor/huggingface/</span></code> 目录中。</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>✅ 单步转换<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p>如果只想转换某一个特定训练步的模型，可直接将 <code class="docutils literal notranslate"><span class="pre">--checkpoint-dir</span></code> 指向对应的 <code class="docutils literal notranslate"><span class="pre">global_step_XXX</span></code> 文件夹：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>trinity<span class="w"> </span>convert<span class="w"> </span>--checkpoint-dir<span class="w"> </span><span class="si">${</span><span class="nv">checkpoint_root_dir</span><span class="si">}</span>/<span class="si">${</span><span class="nv">project</span><span class="si">}</span>/<span class="si">${</span><span class="nv">name</span><span class="si">}</span>/global_step_120
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h4>✅ 路径容错<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<p>即使你指定了 <code class="docutils literal notranslate"><span class="pre">global_step_XXX</span></code> 内部的子路径（例如 <code class="docutils literal notranslate"><span class="pre">.../global_step_120/actor</span></code>），工具也能智能识别并正确完成转换，无需严格对齐到 <code class="docutils literal notranslate"><span class="pre">global_step_XXX</span></code> 层级。</p>
+</section>
+</section>
+<section id="id10">
+<h3>特殊情况：缺少基础模型配置<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>如果某个 <code class="docutils literal notranslate"><span class="pre">global_step_*/actor/huggingface/</span></code> 目录中 <strong>缺少 <code class="docutils literal notranslate"><span class="pre">config.json</span></code></strong>（通常是因为训练时未完整保存配置），转换过程需要原始基础模型的配置文件。此时，请通过 <code class="docutils literal notranslate"><span class="pre">--base-model-dir</span></code> 指定基础模型路径：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>trinity<span class="w"> </span>convert<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--checkpoint-dir<span class="w"> </span><span class="si">${</span><span class="nv">checkpoint_root_dir</span><span class="si">}</span>/<span class="si">${</span><span class="nv">project</span><span class="si">}</span>/<span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--base-model-dir<span class="w"> </span>/path/to/your/base/model
+</pre></div>
+</div>
+<blockquote>
+<div><p>💡 此参数适用于<strong>所有被扫描到的检查点</strong>。只要任意一个检查点缺少 <code class="docutils literal notranslate"><span class="pre">config.json</span></code>，就需要提供该参数。</p>
+</div></blockquote>
+</section>
+<section id="id11">
+<h3>注意事项<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>仅转换 Actor 模型</strong>：当前 <code class="docutils literal notranslate"><span class="pre">trinity</span> <span class="pre">convert</span></code> 仅处理 <code class="docutils literal notranslate"><span class="pre">actor</span></code> 文件夹中的模型参数，<strong>不会处理 <code class="docutils literal notranslate"><span class="pre">critic</span></code></strong>（即使存在）。若需转换 Critic 模型，需另行操作。</p></li>
+<li><p><strong>自动识别训练格式</strong>：<code class="docutils literal notranslate"><span class="pre">trinity</span> <span class="pre">convert</span></code> 原生支持 <strong>FSDP</strong> 和 <strong>Megatron</strong> 两种分布式训练格式的检查点，<strong>无需额外指定参数</strong>，工具会自动检测并正确合并分片权重。</p></li>
+<li><p><strong>幂等性</strong>：如果某个 <code class="docutils literal notranslate"><span class="pre">global_step_*</span></code> 的 <code class="docutils literal notranslate"><span class="pre">huggingface/</span></code> 目录已包含完整的 Hugging Face 文件（特别是 <code class="docutils literal notranslate"><span class="pre">model.safetensors</span></code>），该检查点将被跳过，避免重复转换。</p></li>
+<li><p><strong>性能提示</strong>：转换过程可能较耗时，尤其是当检查点数量多或模型较大时。建议在空闲时段运行。</p></li>
+</ul>
+</section>
+</section>
 <section id="sft-warmup-rft">
 <h2>进阶选项：带 SFT warmup 的 RFT<a class="headerlink" href="#sft-warmup-rft" title="Link to this heading">#</a></h2>
 <p>在进行 RFT 之前，我们可以先使用 SFT 作为预热步骤。Trinity-RFT 支持通过在配置文件中设置 <code class="docutils literal notranslate"><span class="pre">stages</span></code> 来添加 SFT 预热阶段。<code class="docutils literal notranslate"><span class="pre">experience_buffer</span></code> 指定用于 SFT warmup 的数据集，<code class="docutils literal notranslate"><span class="pre">total_steps</span></code> 指定 SFT warmup 的训练步数。</p>
@@ -788,12 +901,12 @@ huggingface-cli<span class="w"> </span>download<span class="w"> </span>openai/gs
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="align_with_verl.html"
+       href="metrics_reference.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">上一页</p>
-        <p class="prev-next-title">与 veRL 对齐训练配置</p>
+        <p class="prev-next-title">监控指标解释</p>
       </div>
     </a>
     <a class="right-next"
@@ -827,6 +940,18 @@ huggingface-cli<span class="w"> </span>download<span class="w"> </span>openai/gs
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity-rft">Trinity-RFT 的同步模式</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grpo">使用 GRPO 算法</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">运行实验</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hugging-face">进阶选项：将检查点转换为 Hugging Face 格式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">何时需要转换？</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity-convert">转换工具：<code class="docutils literal notranslate"><span class="pre">trinity</span> <span class="pre">convert</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">✅ 批量转换（推荐）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">✅ 单步转换</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">✅ 路径容错</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">特殊情况：缺少基础模型配置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">注意事项</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sft-warmup-rft">进阶选项：带 SFT warmup 的 RFT</a></li>

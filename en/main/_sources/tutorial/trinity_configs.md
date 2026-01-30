@@ -53,7 +53,7 @@ stages:
   ...
 ```
 
-Each of these sections will be explained in detail below. For additional details about specific parameters not covered here, please refer to the [source code](https://github.com/modelscope/Trinity-RFT/blob/main/trinity/common/config.py).
+Each of these sections will be explained in detail below. For additional details about specific parameters not covered here, please refer to the [source code](https://github.com/agentscope-ai/Trinity-RFT/blob/main/trinity/common/config.py).
 
 ```{tip}
 Trinity-RFT uses [OmegaConf](https://omegaconf.readthedocs.io/en/latest/) to load YAML configuration files.
@@ -72,6 +72,7 @@ project: Trinity-RFT
 name: example
 mode: both
 checkpoint_root_dir: ${oc.env:TRINITY_CHECKPOINT_ROOT_DIR,./checkpoints}   # TRINITY_CHECKPOINT_ROOT_DIR is an environment variable set in advance
+ignore_validator_suggestions: false
 ```
 
 - `project`: The name of the project.
@@ -84,6 +85,7 @@ checkpoint_root_dir: ${oc.env:TRINITY_CHECKPOINT_ROOT_DIR,./checkpoints}   # TRI
 - `checkpoint_root_dir`: Root directory where all checkpoints and logs will be saved. Checkpoints for this experiment will be stored in `<checkpoint_root_dir>/<project>/<name>/`.
 - `continue_from_checkpoint`: If set to `true`, the experiment will continue from the latest checkpoint in the checkpoint path (if any); otherwise, it will rename the current experiment to `<name>_<timestamp>` and start a new experiment. Due to our decoupled design, during recovery from a checkpoint, we can only guarantee that the Trainer's model parameters and its optional auxiliary buffers (`auxiliary_buffers`) are restored to their latest checkpointed states, while the Explorer and Experience Buffer cannot be guaranteed to be restored to the same point in time.
 - `ray_namespace`: Namespace for the modules launched in the current experiment. If not specified, it will be set to `<project>/<name>`.
+- `ignore_validator_suggestions`: When set to `false` (the default), the config validator checks GPU memory usage and suggests configuration changes if needed. When set to `true`, the validator skips GPU memory usage check.
 
 ---
 
@@ -97,7 +99,7 @@ algorithm:
   repeat_times: 8
   optimizer:
     lr: 1e-6
-    warmup_style: "warmup"
+    lr_scheduler_type: "constant"
   # The following parameters are optional
   # If not specified, they will automatically be set based on the `algorithm_type`
   sample_strategy: "default"
@@ -111,7 +113,8 @@ algorithm:
 - `repeat_times`: Number of times each task is repeated. Default is `1`. In `dpo`, this is automatically set to `2`. Some algorithms such as GRPO and OPMD require `repeat_times` > 1.
 - `optimizer`: Optimizer configuration for actor.
   - `lr`: Learning rate for actor.
-  - `warmup_style`: Warmup style for actor's learning rate.
+  - `warmup_style`: Deprecated, use `lr_scheduler_type` instead. We will remove this field in future versions.
+  - `lr_scheduler_type`: Learning rate scheduler type for actor model. Default is `constant`. Supported types: `constant`, `cosine`.
 - `sample_strategy`: The sampling strategy used for loading experiences from experience buffer. Supported types: `default`, `staleness_control`, `mix`.
 - `advantage_fn`: The advantage function used for computing advantages.
 - `kl_penalty_fn`: The KL penalty function used for computing KL penalty applied in reward.
@@ -389,6 +392,8 @@ Controls the rollout models and workflow execution.
 explorer:
   name: explorer
   runner_per_model: 8
+  concurrent_mode: sequential
+  max_repeat_times_per_runner: null
   max_timeout: 900
   max_retry_times: 2
   env_vars: {}
@@ -413,6 +418,11 @@ explorer:
 
 - `name`: Name of the explorer. This name will be used as the Ray actor's name, so it must be unique.
 - `runner_per_model`: Number of parallel workflow runners per each rollout model.
+- `concurrent_mode`: Concurrency mode for executing a set of tasks (e.g., multiple repeats of a task in GRPO algorithm). Supported options:
+  - `sequential`: Executes tasks sequentially (default). One task is executed at a time, waiting for its completion before executing the next. This requires the least from the workflow implementation but has the worst throughput.
+  - `asynchronous`: Executes tasks asynchronously. All tasks are submitted at once, and results are collected as they complete. Requires the workflow to correctly implement asynchronous call interfaces and have no shared state between workflows to avoid race conditions. Throughput is better than sequential execution, but the performance depends on the workflow implementation.
+  - `multi-threading`: Executes tasks using multi-threading. Multiple tasks are executed simultaneously using threads. Requires the workflow implementation to be thread-safe to avoid race conditions. Throughput is usually better than sequential execution but may be lower than asynchronous execution, depending on the workflow implementation and system resources.
+- `max_repeat_times_per_runner`: Splits tasks that originally need to be repeated `algorithm.repeat_times` times into multiple subtasks, where each subtask's `repeat_times` does not exceed this value. This parameter is only applicable to GRPO-like algorithms. If not set, there is no limit on the number of repeats. It is recommended to use this parameter when `concurrent_mode` is `sequential` to reduce the end to end latency and improve throughput.
 - `max_timeout`: Maximum time (in seconds) for a workflow to complete.
 - `max_retry_times`: Maximum number of retries for a workflow.
 - `env_vars`: Environment variables to be set for every workflow runners.
@@ -475,6 +485,7 @@ trainer:
   use_dynamic_bsz: true
   max_token_len_per_gpu: 16384
   ulysses_sequence_parallel_size: 1
+  max_checkpoints_to_keep: 5
   trainer_config: null
 ```
 
@@ -499,6 +510,7 @@ trainer:
 - `use_dynamic_bsz`: Whether to use dynamic batch size.
 - `max_token_len_per_gpu`:  The maximum number of tokens to be processed in forward and backward when updating the policy. Effective when `use_dynamic_bsz=true`.
 - `ulysses_sequence_parallel_size`: Sequence parallel size.
+- `max_checkpoints_to_keep`: Maximum number of checkpoints to keep. Older checkpoints will be deleted. If not specified, all checkpoints will be kept.
 - `trainer_config`: The trainer configuration provided inline.
 ---
 

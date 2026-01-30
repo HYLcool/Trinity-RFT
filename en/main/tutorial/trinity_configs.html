@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Configuration Guide &#8212; Trinity-RFT 0.4.0 documentation</title>
+    <title>Configuration Guide &#8212; Trinity-RFT 0.5.0.dev0 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=183391d5"></script>
+    <script src="../_static/documentation_options.js?v=3b5db68c"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.4.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.4.0 documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.0.dev0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.5.0.dev0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="trinity_gpu_configs.html">GPU Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronizer.html">Synchronizer in Trinity-RFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="align_with_verl.html">Align configuration with veRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_reference.html">Monitor Metrics Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
@@ -355,6 +356,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.manager.config_registry.trainer_config_manager.html">trinity.manager.config_registry.trainer_config_manager module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.checkpoint_converter.html">trinity.manager.checkpoint_converter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.config_manager.html">trinity.manager.config_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.state_manager.html">trinity.manager.state_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.synchronizer.html">trinity.manager.synchronizer module</a></li>
@@ -404,6 +406,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config.html">trinity.common.config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config_validator.html">trinity.common.config_validator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.constants.html">trinity.common.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.experience.html">trinity.common.experience module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.verl_config.html">trinity.common.verl_config module</a></li>
@@ -502,7 +505,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/modelscope/Trinity-RFT" target="_blank"
+<a href="https://github.com/agentscope-ai/Trinity-RFT" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -709,7 +712,7 @@ document.write(`
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
-<p>Each of these sections will be explained in detail below. For additional details about specific parameters not covered here, please refer to the <a class="reference external" href="https://github.com/modelscope/Trinity-RFT/blob/main/trinity/common/config.py">source code</a>.</p>
+<p>Each of these sections will be explained in detail below. For additional details about specific parameters not covered here, please refer to the <a class="reference external" href="https://github.com/agentscope-ai/Trinity-RFT/blob/main/trinity/common/config.py">source code</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Trinity-RFT uses <a class="reference external" href="https://omegaconf.readthedocs.io/en/latest/">OmegaConf</a> to load YAML configuration files.
@@ -725,6 +728,7 @@ Users can use these features to simplify configuration.</p>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
 <span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">both</span>
 <span class="nt">checkpoint_root_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${oc.env:TRINITY_CHECKPOINT_ROOT_DIR,./checkpoints}</span><span class="w">   </span><span class="c1"># TRINITY_CHECKPOINT_ROOT_DIR is an environment variable set in advance</span>
+<span class="nt">ignore_validator_suggestions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -741,6 +745,7 @@ Users can use these features to simplify configuration.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">checkpoint_root_dir</span></code>: Root directory where all checkpoints and logs will be saved. Checkpoints for this experiment will be stored in <code class="docutils literal notranslate"><span class="pre">&lt;checkpoint_root_dir&gt;/&lt;project&gt;/&lt;name&gt;/</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">continue_from_checkpoint</span></code>: If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the experiment will continue from the latest checkpoint in the checkpoint path (if any); otherwise, it will rename the current experiment to <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_&lt;timestamp&gt;</span></code> and start a new experiment. Due to our decoupled design, during recovery from a checkpoint, we can only guarantee that the Trainer’s model parameters and its optional auxiliary buffers (<code class="docutils literal notranslate"><span class="pre">auxiliary_buffers</span></code>) are restored to their latest checkpointed states, while the Explorer and Experience Buffer cannot be guaranteed to be restored to the same point in time.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ray_namespace</span></code>: Namespace for the modules launched in the current experiment. If not specified, it will be set to <code class="docutils literal notranslate"><span class="pre">&lt;project&gt;/&lt;name&gt;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignore_validator_suggestions</span></code>: When set to <code class="docutils literal notranslate"><span class="pre">false</span></code> (the default), the config validator checks GPU memory usage and suggests configuration changes if needed. When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the validator skips GPU memory usage check.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -752,7 +757,7 @@ Users can use these features to simplify configuration.</p>
 <span class="w">  </span><span class="nt">repeat_times</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
 <span class="w">  </span><span class="nt">optimizer</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">lr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-6</span>
-<span class="w">    </span><span class="nt">warmup_style</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;warmup&quot;</span>
+<span class="w">    </span><span class="nt">lr_scheduler_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;constant&quot;</span>
 <span class="w">  </span><span class="c1"># The following parameters are optional</span>
 <span class="w">  </span><span class="c1"># If not specified, they will automatically be set based on the `algorithm_type`</span>
 <span class="w">  </span><span class="nt">sample_strategy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
@@ -768,7 +773,8 @@ Users can use these features to simplify configuration.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code>: Optimizer configuration for actor.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lr</span></code>: Learning rate for actor.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">warmup_style</span></code>: Warmup style for actor’s learning rate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warmup_style</span></code>: Deprecated, use <code class="docutils literal notranslate"><span class="pre">lr_scheduler_type</span></code> instead. We will remove this field in future versions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_scheduler_type</span></code>: Learning rate scheduler type for actor model. Default is <code class="docutils literal notranslate"><span class="pre">constant</span></code>. Supported types: <code class="docutils literal notranslate"><span class="pre">constant</span></code>, <code class="docutils literal notranslate"><span class="pre">cosine</span></code>.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sample_strategy</span></code>: The sampling strategy used for loading experiences from experience buffer. Supported types: <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">staleness_control</span></code>, <code class="docutils literal notranslate"><span class="pre">mix</span></code>.</p></li>
@@ -1087,6 +1093,8 @@ Users can use these features to simplify configuration.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">explorer</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">explorer</span>
 <span class="w">  </span><span class="nt">runner_per_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="w">  </span><span class="nt">concurrent_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sequential</span>
+<span class="w">  </span><span class="nt">max_repeat_times_per_runner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 <span class="w">  </span><span class="nt">max_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
 <span class="w">  </span><span class="nt">max_retry_times</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">  </span><span class="nt">env_vars</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
@@ -1112,6 +1120,14 @@ Users can use these features to simplify configuration.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: Name of the explorer. This name will be used as the Ray actor’s name, so it must be unique.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">runner_per_model</span></code>: Number of parallel workflow runners per each rollout model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">concurrent_mode</span></code>: Concurrency mode for executing a set of tasks (e.g., multiple repeats of a task in GRPO algorithm). Supported options:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sequential</span></code>: Executes tasks sequentially (default). One task is executed at a time, waiting for its completion before executing the next. This requires the least from the workflow implementation but has the worst throughput.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asynchronous</span></code>: Executes tasks asynchronously. All tasks are submitted at once, and results are collected as they complete. Requires the workflow to correctly implement asynchronous call interfaces and have no shared state between workflows to avoid race conditions. Throughput is better than sequential execution, but the performance depends on the workflow implementation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multi-threading</span></code>: Executes tasks using multi-threading. Multiple tasks are executed simultaneously using threads. Requires the workflow implementation to be thread-safe to avoid race conditions. Throughput is usually better than sequential execution but may be lower than asynchronous execution, depending on the workflow implementation and system resources.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_repeat_times_per_runner</span></code>: Splits tasks that originally need to be repeated <code class="docutils literal notranslate"><span class="pre">algorithm.repeat_times</span></code> times into multiple subtasks, where each subtask’s <code class="docutils literal notranslate"><span class="pre">repeat_times</span></code> does not exceed this value. This parameter is only applicable to GRPO-like algorithms. If not set, there is no limit on the number of repeats. It is recommended to use this parameter when <code class="docutils literal notranslate"><span class="pre">concurrent_mode</span></code> is <code class="docutils literal notranslate"><span class="pre">sequential</span></code> to reduce the end to end latency and improve throughput.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_timeout</span></code>: Maximum time (in seconds) for a workflow to complete.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_retry_times</span></code>: Maximum number of retries for a workflow.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">env_vars</span></code>: Environment variables to be set for every workflow runners.</p></li>
@@ -1183,6 +1199,7 @@ Users can use these features to simplify configuration.</p>
 <span class="w">  </span><span class="nt">use_dynamic_bsz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">max_token_len_per_gpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16384</span>
 <span class="w">  </span><span class="nt">ulysses_sequence_parallel_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">max_checkpoints_to_keep</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">  </span><span class="nt">trainer_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 </pre></div>
 </div>
@@ -1217,6 +1234,7 @@ Users can use these features to simplify configuration.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">use_dynamic_bsz</span></code>: Whether to use dynamic batch size.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_token_len_per_gpu</span></code>:  The maximum number of tokens to be processed in forward and backward when updating the policy. Effective when <code class="docutils literal notranslate"><span class="pre">use_dynamic_bsz=true</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ulysses_sequence_parallel_size</span></code>: Sequence parallel size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_checkpoints_to_keep</span></code>: Maximum number of checkpoints to keep. Older checkpoints will be deleted. If not specified, all checkpoints will be kept.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">trainer_config</span></code>: The trainer configuration provided inline.</p></li>
 </ul>
 </section>
