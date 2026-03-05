@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Operator Development Guide &#8212; Trinity-RFT 0.5.0.dev0 documentation</title>
+    <title>Operator Development Guide &#8212; Trinity-RFT 0.5.1 documentation</title>
   
   
   
@@ -36,11 +36,12 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=3b5db68c"></script>
+    <script src="../_static/documentation_options.js?v=5f152624"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/develop_operator';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="🧪 Experimental: Task Selection" href="develop_selector.html" />
@@ -136,8 +137,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.0.dev0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.5.0.dev0 documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Trinity-RFT 0.5.1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -276,6 +277,7 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../build_api/trinity.trainer.html">trinity.trainer package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.trainer.tinker.html">trinity.trainer.tinker package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.tinker.tinker_trainer.html">trinity.trainer.tinker.tinker_trainer module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.tinker.utils.html">trinity.trainer.tinker.utils module</a></li>
 </ul>
 </details></li>
@@ -286,19 +288,23 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.megatron_actor.html">trinity.trainer.verl.megatron_actor module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.megatron_checkpoint_manager.html">trinity.trainer.verl.megatron_checkpoint_manager module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.megatron_workers.html">trinity.trainer.verl.megatron_workers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.monkey_patch.html">trinity.trainer.verl.monkey_patch module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.utils.html">trinity.trainer.verl.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.verl_config.html">trinity.trainer.verl.verl_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.trainer.verl.verl_trainer.html">trinity.trainer.verl.verl_trainer module</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.trainer.tinker_trainer.html">trinity.trainer.tinker_trainer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.trainer.trainer.html">trinity.trainer.trainer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.trainer.verl_trainer.html">trinity.trainer.verl_trainer module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../build_api/trinity.algorithm.html">trinity.algorithm package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.html">trinity.algorithm.advantage_fn package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.advantage_fn.html">trinity.algorithm.advantage_fn.advantage_fn module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.asymre_advantage.html">trinity.algorithm.advantage_fn.asymre_advantage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.clipb_advantage.html">trinity.algorithm.advantage_fn.clipb_advantage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.clipv_advantage.html">trinity.algorithm.advantage_fn.clipv_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.grpo_advantage.html">trinity.algorithm.advantage_fn.grpo_advantage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.jsd_advantage.html">trinity.algorithm.advantage_fn.jsd_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.multi_step_grpo_advantage.html">trinity.algorithm.advantage_fn.multi_step_grpo_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.on_policy_distill_advantage.html">trinity.algorithm.advantage_fn.on_policy_distill_advantage module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.algorithm.advantage_fn.opmd_advantage.html">trinity.algorithm.advantage_fn.opmd_advantage module</a></li>
@@ -358,6 +364,7 @@
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.checkpoint_converter.html">trinity.manager.checkpoint_converter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.config_manager.html">trinity.manager.config_manager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.log_manager.html">trinity.manager.log_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.state_manager.html">trinity.manager.state_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.manager.synchronizer.html">trinity.manager.synchronizer module</a></li>
 </ul>
@@ -371,6 +378,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.utils.html">trinity.common.models.utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.vllm_model.html">trinity.common.models.vllm_model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.models.vllm_worker.html">trinity.common.models.vllm_worker module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.common.patch.html">trinity.common.patch package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.patch.glm4v.html">trinity.common.patch.glm4v module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../build_api/trinity.common.patch.kimi.html">trinity.common.patch.kimi module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../build_api/trinity.common.rewards.html">trinity.common.rewards package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -409,7 +421,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.config_validator.html">trinity.common.config_validator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.constants.html">trinity.common.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.experience.html">trinity.common.experience module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_api/trinity.common.verl_config.html">trinity.common.verl_config module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../build_api/trinity.utils.html">trinity.utils package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -628,6 +639,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-basic-concepts-of-operator-module">Step 0: Basic Concepts of Operator Module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-implement-operator">Step 1: Implement Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-use-your-operator">Step 2: Use Your Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-features">Advanced Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auxiliary-models-inside-operators">Using Auxiliary Models inside Operators</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -643,7 +658,7 @@ document.write(`
 <span id="operators"></span><h1>Operator Development Guide<a class="headerlink" href="#operator-development-guide" title="Link to this heading">#</a></h1>
 <section id="step-0-basic-concepts-of-operator-module">
 <h2>Step 0: Basic Concepts of Operator Module<a class="headerlink" href="#step-0-basic-concepts-of-operator-module" title="Link to this heading">#</a></h2>
-<p>In Trinity-RFT, the operator module is responsible for processing experience data in the buffer module. It supports existing data processing capabilities from <a class="reference external" href="https://github.com/modelscope/data-juicer">Data-Juicer</a> naturally, and allows developers to implement their own operators as well.
+<p>In Trinity-RFT, the operator module is responsible for processing experience data in the buffer module. It supports existing data processing capabilities from <a class="reference external" href="https://github.com/datajuicer/data-juicer">Data-Juicer</a> naturally, and allows developers to implement their own operators as well.
 By customizing operators, developers can implement various data processing functionalities, such as data augmentation, filtering, and transformation. You can even implement advantages/returns calculation as operators, as shown in <a class="reference internal" href="develop_algorithm.html#algorithms"><span class="std std-ref">Algorithms</span></a> section.</p>
 <ul class="simple">
 <li><p><strong>DataJuicerOperator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">trinity.buffer.operators.DataJuicerOperator</span></code>): The operator that wraps the data processing operators from Data-Juicer. It provides a simple interface for developers to list the Data-Juicer operators they want to use. The full list of Data-Juicer operators can be found <a class="reference external" href="https://agentscope-ai.github.io/data-juicer/en/main/docs/Operators.html">here</a>.</p></li>
@@ -660,11 +675,11 @@ In the current version, the <code class="docutils literal notranslate"><span cla
 </section>
 <section id="step-1-implement-operator">
 <h2>Step 1: Implement Operator<a class="headerlink" href="#step-1-implement-operator" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ExperienceOperator</span></code> interface includes only one <code class="docutils literal notranslate"><span class="pre">process</span></code> method. The <code class="docutils literal notranslate"><span class="pre">ExperiencePipeline</span></code> will call this method with a list of <code class="docutils literal notranslate"><span class="pre">Experience</span></code> generated by the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> in one explore step. The <code class="docutils literal notranslate"><span class="pre">process</span></code> method should return a tuple containing the processed list of <code class="docutils literal notranslate"><span class="pre">Experience</span></code> and a dictionary of metrics for logging.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ExperienceOperator</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">ExperienceOperatorV1</span></code> interface includes only one <code class="docutils literal notranslate"><span class="pre">process</span></code> method. The <code class="docutils literal notranslate"><span class="pre">ExperiencePipeline</span></code> will call this method with a list of <code class="docutils literal notranslate"><span class="pre">Experience</span></code> generated by the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> in one explore step. The <code class="docutils literal notranslate"><span class="pre">process</span></code> method should return a tuple containing the processed list of <code class="docutils literal notranslate"><span class="pre">Experience</span></code> and a dictionary of metrics for logging.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ExperienceOperatorV1</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Process a list of experiences and return a transformed list.</span>
 
 <span class="sd">        Args:</span>
@@ -676,16 +691,16 @@ In the current version, the <code class="docutils literal notranslate"><span cla
 </pre></div>
 </div>
 <p>Here is an implementation of a simple operator that filters out experiences with rewards below a certain threshold:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">trinity.buffer.operators</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExperienceOperator</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">trinity.buffer.operators</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExperienceOperatorV1</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">trinity.common.experience</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experience</span>
 
 
-<span class="k">class</span><span class="w"> </span><span class="nc">RewardFilter</span><span class="p">(</span><span class="n">ExperienceOperator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RewardFilter</span><span class="p">(</span><span class="n">ExperienceOperatorV1</span><span class="p">):</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
         <span class="n">filtered_exps</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span> <span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">exps</span> <span class="k">if</span> <span class="n">exp</span><span class="o">.</span><span class="n">reward</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">]</span>
         <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;filtered_count&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">exps</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_exps</span><span class="p">)}</span>
         <span class="k">return</span> <span class="n">filtered_exps</span><span class="p">,</span> <span class="n">metrics</span>
@@ -705,7 +720,7 @@ In the current version, the <code class="docutils literal notranslate"><span cla
 <span class="w">          </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
 <span class="nt">synchronizer</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sync_method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nccl</span>
-<span class="w">  </span><span class="nt">sync_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynamic_by_explorer</span>
+<span class="w">  </span><span class="nt">sync_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">explorer_driven</span>
 <span class="w">  </span><span class="nt">sync_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="c1"># some other configs</span>
 </pre></div>
@@ -715,6 +730,62 @@ In the current version, the <code class="docutils literal notranslate"><span cla
 <p>The <code class="docutils literal notranslate"><span class="pre">RewardFilter</span></code> reduces the number of experiences, which may cause the trainer can’t get enough experiences to start a training step. To avoid the issue, you can use the advanced <a class="reference internal" href="synchronizer.html#synchronizer"><span class="std std-ref">Dynamic Synchronization</span></a> feature provided by Trinity-RFT as shown in the above configuration file.
 The above setting means that the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> will sync with the <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> every 2 steps and will continue running regardless of how many steps the <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> has completed. This ensures that the <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> can always get enough experiences to start a training step as long as the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> is running.</p>
 </div>
+</section>
+<section id="advanced-features">
+<h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading">#</a></h2>
+<section id="using-auxiliary-models-inside-operators">
+<h3>Using Auxiliary Models inside Operators<a class="headerlink" href="#using-auxiliary-models-inside-operators" title="Link to this heading">#</a></h3>
+<p>As introduced in <a class="reference internal" href="develop_workflow.html"><span class="std std-doc">Workflow Development Guide</span></a>, Trinity-RFT supports depolying auxiliary models and calling them through OpenAI API. This feature can also be used in operators, which allows you to leverage powerful models to judge and process experiences. This is particularly useful for implementing operators that require complex reasoning or natural language understanding.</p>
+<p>Suppose you have the following auxiliary model configuration in the YAML file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">explorer</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">auxiliary_models</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Qwen/Qwen2.5-32B-Instruct</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen2.5-32B</span>
+<span class="w">      </span><span class="nt">engine_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">tensor_parallel_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">enable_thinking</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">max_prompt_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12288</span>
+<span class="w">      </span><span class="nt">max_response_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12288</span>
+<span class="w">      </span><span class="nt">max_model_len</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16384</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Qwen/Qwen3-8B</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen3-8B</span>
+<span class="w">      </span><span class="nt">engine_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">tensor_parallel_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">enable_thinking</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">max_prompt_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12288</span>
+<span class="w">      </span><span class="nt">max_response_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12288</span>
+<span class="w">      </span><span class="nt">max_model_len</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16384</span>
+</pre></div>
+</div>
+<p>Trinity-RFT will automatically inject the deployed auxiliary models into the operators as <code class="docutils literal notranslate"><span class="pre">self.auxiliary_models</span></code>, which is a dictionary mapping model names to model instances (<code class="docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">List[openai.AsyncOpenAI]]</span></code>).
+The key is the <code class="docutils literal notranslate"><span class="pre">name</span></code> of the model in the configuration file, and the number of each model instance in the list is determined by the <code class="docutils literal notranslate"><span class="pre">engine_num</span></code>.
+You can call the model’s inference API in the <code class="docutils literal notranslate"><span class="pre">process</span></code> method of the operator to get the model’s response based on the experience data. Below is an example of how to use the auxiliary model in an operator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">trinity.buffer.operators</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExperienceOperatorV1</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">trinity.common.experience</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experience</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">OperatorWithModel</span><span class="p">(</span><span class="n">ExperienceOperatorV1</span><span class="p">):</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">judge_experience</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exp</span><span class="p">:</span> <span class="n">Experience</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="c1"># Extract necessary information from the experience and prepare input for the model</span>
+        <span class="c1"># messages = ...</span>
+        <span class="c1"># Call the model&#39;s inference API to get the response</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_models</span><span class="p">[</span><span class="s2">&quot;qwen2.5-32B&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_models</span><span class="p">[</span><span class="s2">&quot;qwen2.5-32B&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model_path</span><span class="p">,</span>  <span class="c1"># Trinity-RFT will automatically set the `model_path` for easy calling</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Process the model&#39;s response and update the experience accordingly</span>
+        <span class="c1"># ...</span>
+        <span class="k">return</span> <span class="n">exp</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Experience</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+        <span class="c1"># Use the model to process experiences</span>
+        <span class="c1"># For example, you can call the model&#39;s generate method to get responses based on the experience data</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">judge_experience</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span> <span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">exps</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">exps</span><span class="p">,</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -766,6 +837,10 @@ The above setting means that the <code class="docutils literal notranslate"><spa
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-basic-concepts-of-operator-module">Step 0: Basic Concepts of Operator Module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-implement-operator">Step 1: Implement Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-use-your-operator">Step 2: Use Your Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-features">Advanced Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auxiliary-models-inside-operators">Using Auxiliary Models inside Operators</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

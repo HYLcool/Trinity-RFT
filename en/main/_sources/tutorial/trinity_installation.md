@@ -11,7 +11,7 @@ Make sure your system meets these requirements:
 
 - **Python**: 3.10 – 3.12
 - **CUDA**: 12.8 or higher
-- **GPUs**: At least 2 available
+- **GPUs**: At least one NVIDIA GPU with [compute capability](https://developer.nvidia.com/cuda/gpus) 8.0 or higher (e.g., RTX 30 series, A100, H100)
 
 ### If you don’t have GPUs or prefer not to use them
 
@@ -82,22 +82,12 @@ uv sync --extra vllm --extra dev --extra flash_attn
 # uv sync --extra tinker --extra dev
 ```
 
----
+```{tip}
+If you can't install flash-attn due to network error or compiler error, you can try to install it from our pre-compiled wheel:
 
-## Via PyPI
+`python scripts/install/install_flash_attn.py`
 
-If you just want to use the package without modifying the code:
-
-```bash
-pip install trinity-rft
-pip install flash-attn==2.8.1
-```
-
-Or with `uv`:
-
-```bash
-uv pip install trinity-rft
-uv pip install flash-attn==2.8.1
+If you are using `uv`, add `--uv` flag to the command above.
 ```
 
 ---
@@ -112,7 +102,7 @@ You can download the Trinity-RFT Docker image from Github Container Registry or 
 git clone https://github.com/agentscope-ai/Trinity-RFT
 cd Trinity-RFT
 
-docker pull ghcr.io/modelscope/trinity-rft:latest
+docker pull ghcr.io/agentscope-ai/trinity-rft:latest
 
 docker run -it \
   --gpus all \
@@ -120,7 +110,7 @@ docker run -it \
   --rm \
   -v $PWD:/workspace \
   -v <path_to_your_data_and_checkpoints>:/data \
-  ghcr.io/modelscope/trinity-rft:latest
+  ghcr.io/agentscope-ai/trinity-rft:latest
 ```
 
 ```{note}
@@ -146,6 +136,24 @@ docker run -it \
   -v $PWD:/workspace \
   -v <path_to_your_data_and_checkpoints>:/data \
   trinity-rft:latest
+```
+
+---
+
+## Via PyPI
+
+If you just want to use the package without modifying the code:
+
+```bash
+pip install trinity-rft
+pip install flash-attn==2.8.1  --no-build-isolation
+```
+
+Or with `uv`:
+
+```bash
+uv pip install trinity-rft
+uv pip install flash-attn==2.8.1  --no-build-isolation
 ```
 
 ---

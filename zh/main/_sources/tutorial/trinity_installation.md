@@ -11,7 +11,7 @@
 
 - **Python**：3.10 – 3.12
 - **CUDA**：12.8 或更高版本
-- **GPU**：至少 2 块可用
+- **GPU**：至少一块 [compute capability](https://developer.nvidia.com/cuda/gpus) 为 8.0 或更高的 NVIDIA GPU（例如 RTX 30 系列、A100、H100）
 
 ### 如果您没有 GPU 或不希望使用 GPU
 
@@ -82,6 +82,14 @@ uv sync --extra vllm --extra dev --extra flash_attn
 # uv sync --extra tinker --extra dev
 ```
 
+```{tip}
+如果安装 flash-attn 时遇到网络错误或编译错误，您可以尝试从我们预编译的 wheel 安装：
+
+`python scripts/install/install_flash_attn.py`
+
+如果您使用 `uv`，请在上述命令后添加 `--uv` 参数。
+```
+
 ---
 
 ## 使用 Docker
@@ -94,7 +102,7 @@ uv sync --extra vllm --extra dev --extra flash_attn
 git clone https://github.com/agentscope-ai/Trinity-RFT
 cd Trinity-RFT
 
-docker pull ghcr.io/modelscope/trinity-rft:latest
+docker pull ghcr.io/agentscope-ai/trinity-rft:latest
 
 docker run -it \
   --gpus all \
@@ -102,7 +110,7 @@ docker run -it \
   --rm \
   -v $PWD:/workspace \
   -v <path_to_your_data_and_checkpoints>:/data \
-  ghcr.io/modelscope/trinity-rft:latest
+  ghcr.io/agentscope-ai/trinity-rft:latest
 ```
 
 ```{note}
@@ -139,14 +147,14 @@ docker run -it \
 
 ```bash
 pip install trinity-rft
-pip install flash-attn==2.8.1
+pip install flash-attn==2.8.1 --no-build-isolation
 ```
 
 或使用 `uv`：
 
 ```bash
 uv pip install trinity-rft
-uv pip install flash-attn==2.8.1
+uv pip install flash-attn==2.8.1 --no-build-isolation
 ```
 
 ---
