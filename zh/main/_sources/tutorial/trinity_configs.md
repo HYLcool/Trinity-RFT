@@ -179,6 +179,11 @@ model:
     train_mlp: true
     train_attn: true
     train_unembed: true
+  external_model:
+    enable: false
+    base_url_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+    model_name: null
 ```
 
 - `model_path`: 被训练模型的路径。如果启用了`tinker`，则该路径为本地 tokenizer 的路径。
@@ -208,6 +213,11 @@ model:
   - `train_mlp`：是否训练 MLP 层。默认为 `true`。
   - `train_attn`：是否训练注意力层。默认为 `true`。
   - `train_unembed`：是否训练反嵌入（unembedding）层。默认为 `true`。
+- `external_model`：可选的外部 API 模型配置。
+  - `enable`：是否启用外部模型。默认为 `false`。
+  - `model_name`：外部模型的模型名称。若未指定，则默认为 `null`。
+  - `base_url_env`：外部模型的 base url 环境变量。若未指定，则默认为 `OPENAI_BASE_URL`。
+  - `api_key_env`：外部模型的 api key 环境变量。若未指定，则默认为 `OPENAI_API_KEY`。
 
 ```{tip}
 如果使用的是 Explorer 提供的 openai API，则只有 `max_model_len` 会生效，而 `max_response_tokens`、`max_prompt_tokens` 和 `min_response_tokens` 的值将被忽略，在没有独立指定 `max_tokens` 时，每次 API 调用将生成最多 `max_model_len - prompt_length` 个 token，因此在使用时请确保 prompt 长度小于 `max_model_len`。
@@ -399,17 +409,19 @@ explorer:
     engine_type: vllm
     engine_num: 1
     tensor_parallel_size: 1
-    enable_history: False
+    enable_history: false
   auxiliary_models:
   - model_path: Qwen/Qwen2.5-7B-Instruct
     tensor_parallel_size: 1
   eval_interval: 100
-  eval_on_startup: True
+  eval_on_startup: true
   over_rollout:
     ratio: 0.0
     wait_after_min: 30.0
+    return_partial_tasks: false
   dynamic_timeout:
     enable: false
+    warmup_min_steps: 1
     ratio: 3.0
   runner_state_report_interval: 0
 ```
@@ -424,7 +436,10 @@ explorer:
 - `max_timeout`: 等待 Workflow 完成的最大时间（秒）。
 - `max_retry_times`: Workflow 失败或超时情况下的最大重试次数。
 - `env_vars`: 为每个 WorkflowRunner 设置的环境变量。
-- `rollout_model.engine_type`: 推理引擎类型。支持 `vllm_async` 和 `vllm`，二者的含义相同，都使用了异步引擎。后续版本会只保留 `vllm`。
+- `rollout_model.engine_type`: 推理引擎类型。支持选项：
+  - `vllm`: 使用 vLLM 异步引擎。
+  - `tinker`: 使用 Tinker 引擎。
+  - `external`: 使用外部 API 引擎。
 - `rollout_model.engine_num`: 推理引擎实例的数量。
 - `rollout_model.tensor_parallel_size`: 每个实例的张量并行度。
 - `rollout_model.enable_history`: 是否启用模型调用历史记录功能。若设为 `True`，模型会自动记录调用返回的 experience。请定期通过 `extract_experience_from_history` 提取历史，以避免内存溢出。默认为 `False`。
@@ -434,9 +449,11 @@ explorer:
 - `over_rollout`: [实验性] 超量 rollout 机制的配置，允许 explorer 在每个步骤中使用少于完整批次大小的任务继续进行。这在某些任务显著耗时较长的场景中能有效地提高吞吐量。仅当使用动态同步（`synchronizer.sync_style` 不是 `fixed`）时适用。
   - `ratio`: explorer 在每个步骤中仅等待 `(1 - ratio) * batch_size` 的任务。默认为 `0.0`，表示等待所有任务。
   - `wait_after_min`: 达到最小任务阈值后，等待此秒数后再继续。
-- `dynamic_timeout`: [实验性] 动态超时机制的配置，根据成功任务的平均耗时调整每个任务的超时时间。
+  - `return_partial_tasks`: 是否返回仅部分完成的任务结果（例如，在 GRPO 中仅完成部分 run 的任务）。默认为 `false`，表示仅返回已完成组内所有 run 的任务结果。
+- `dynamic_timeout`: [实验性] 动态超时机制的配置，根据历史执行耗时动态调整每个调度执行单元的超时时间。
   - `enable`: 是否启用动态超时。默认为 `false`。
-  - `ratio`: 每个任务的超时时间动态设置为 `average_time_per_success_task * ratio`。默认为 `3.0`。
+  - `warmup_min_steps`: 动态超时生效前至少需要观测到多少个完整结束的非评估 step。默认为 `1`。它等价于预热所需的 batch/step 数，可以避免只根据少量较快完成的早期任务就提前启用动态超时。
+  - `ratio`: 每个调度执行单元的超时时间动态设置为 `average_time_per_success_execution * ratio`。默认为 `3.0`。
 - `runner_state_report_interval`: WorkflowRunner 报告自身状态的时间间隔（秒）。若设为大于 0 的值，工作流执行器会定期将其状态报告给 explorer 主进程并打印在命令行中，以便监控其运行状态。默认为 `0`，表示不启用此功能。推荐如需使用此功能，将其设置为 `10` 秒或更长时间以减少对性能的影响。
 
 ---

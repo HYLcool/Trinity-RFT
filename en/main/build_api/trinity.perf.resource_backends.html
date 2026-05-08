@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>trinity.common.rewards.utils module &#8212; Trinity-RFT 0.5.1 documentation</title>
+    <title>trinity.perf.resource_backends module &#8212; Trinity-RFT 0.5.2 documentation</title>
   
   
   
@@ -39,19 +39,17 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=4861a642"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'build_api/trinity.common.rewards.utils';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'build_api/trinity.perf.resource_backends';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="trinity.common.workflows package" href="trinity.common.workflows.html" />
-    <link rel="prev" title="trinity.common.rewards.tool_reward module" href="trinity.common.rewards.tool_reward.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.5.1" />
+  <meta name="docsearch:version" content="0.5.2" />
   </head>
   
   
@@ -130,8 +128,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.1 documentation - Home"/>
-    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Trinity-RFT 0.5.1 documentation - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Trinity-RFT 0.5.2 documentation - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Trinity-RFT 0.5.2 documentation - Home"/>
   
   
 </a></div>
@@ -148,7 +146,7 @@
             </p>
           </summary>
           <ul>
-            <li class="toctree-l2 current "><a class="reference" href="trinity.common.rewards.utils.html">latest</a></li>
+            <li class="toctree-l2 current "><a class="reference" href="trinity.perf.resource_backends.html">latest</a></li>
           </ul>
         </details>
       </li>
@@ -200,8 +198,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/faq.html">FAQ</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api_reference.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_reference.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="trinity.buffer.html">trinity.buffer package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="trinity.buffer.operators.html">trinity.buffer.operators package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="trinity.buffer.operators.filters.html">trinity.buffer.operators.filters package</a></li>
@@ -260,6 +258,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.explorer.html">trinity.explorer.explorer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.explorer.rollout_coordinator.html">trinity.explorer.rollout_coordinator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.scheduler.html">trinity.explorer.scheduler module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.explorer.workflow_runner.html">trinity.explorer.workflow_runner module</a></li>
 </ul>
@@ -358,9 +357,10 @@
 <li class="toctree-l3"><a class="reference internal" href="trinity.manager.synchronizer.html">trinity.manager.synchronizer module</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="trinity.common.html">trinity.common package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="trinity.common.html">trinity.common package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="trinity.common.models.html">trinity.common.models package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.vllm_patch.html">trinity.common.models.vllm_patch package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trinity.common.models.external_model.html">trinity.common.models.external_model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.mm_utils.html">trinity.common.models.mm_utils module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.model.html">trinity.common.models.model module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.models.tinker_model.html">trinity.common.models.tinker_model module</a></li>
@@ -375,7 +375,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.patch.qwen3_5.html">trinity.common.patch.qwen3_5 module</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 current active has-children"><a class="reference internal" href="trinity.common.rewards.html">trinity.common.rewards package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="trinity.common.rewards.html">trinity.common.rewards package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.rewards.accuracy_reward.html">trinity.common.rewards.accuracy_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.rewards.agents_reward.html">trinity.common.rewards.agents_reward module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.rewards.countdown_reward.html">trinity.common.rewards.countdown_reward module</a></li>
@@ -388,7 +388,6 @@
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.rewards.qwen25_eval.html">trinity.common.rewards.qwen25_eval module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.rewards.reward_fn.html">trinity.common.rewards.reward_fn module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trinity.common.rewards.tool_reward.html">trinity.common.rewards.tool_reward module</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">trinity.common.rewards.utils module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="trinity.common.workflows.html">trinity.common.workflows package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -411,6 +410,7 @@
 <li class="toctree-l3"><a class="reference internal" href="trinity.common.config_validator.html">trinity.common.config_validator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.common.constants.html">trinity.common.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trinity.common.experience.html">trinity.common.experience module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trinity.common.experience_visualizer.html">trinity.common.experience_visualizer module</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="trinity.utils.html">trinity.utils package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -537,7 +537,7 @@
       
       
       
-      <li><a href="../_sources/build_api/trinity.common.rewards.utils.rst" target="_blank"
+      <li><a href="../_sources/build_api/trinity.perf.resource_backends.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -613,7 +613,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>trinity.common.rewards.utils module</h1>
+    <h1>trinity.perf.resource_backends module</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -623,7 +623,33 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.rewards.utils.to_rm_gallery_messages"><code class="docutils literal notranslate"><span class="pre">to_rm_gallery_messages()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample"><code class="docutils literal notranslate"><span class="pre">GPUSample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_id"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.name"><code class="docutils literal notranslate"><span class="pre">GPUSample.name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_util_percent"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_util_percent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_memory_used_mb"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_memory_used_mb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_memory_total_mb"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_memory_total_mb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.to_dict"><code class="docutils literal notranslate"><span class="pre">GPUSample.to_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.__init__"><code class="docutils literal notranslate"><span class="pre">GPUSample.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample"><code class="docutils literal notranslate"><span class="pre">ResourceSample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.timestamp"><code class="docutils literal notranslate"><span class="pre">ResourceSample.timestamp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.cpu_percent"><code class="docutils literal notranslate"><span class="pre">ResourceSample.cpu_percent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.memory_rss_mb"><code class="docutils literal notranslate"><span class="pre">ResourceSample.memory_rss_mb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.memory_percent"><code class="docutils literal notranslate"><span class="pre">ResourceSample.memory_percent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.gpu_metrics"><code class="docutils literal notranslate"><span class="pre">ResourceSample.gpu_metrics</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.to_dict"><code class="docutils literal notranslate"><span class="pre">ResourceSample.to_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.__init__"><code class="docutils literal notranslate"><span class="pre">ResourceSample.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.__init__"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.open"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.open()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.close"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.close()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.sample"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.sample()</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -635,20 +661,123 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-trinity.common.rewards.utils">
-<span id="trinity-common-rewards-utils-module"></span><h1>trinity.common.rewards.utils module<a class="headerlink" href="#module-trinity.common.rewards.utils" title="Link to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="trinity.common.rewards.utils.to_rm_gallery_messages">
-<span class="sig-prename descclassname"><span class="pre">trinity.common.rewards.utils.</span></span><span class="sig-name descname"><span class="pre">to_rm_gallery_messages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/trinity/common/rewards/utils.html#to_rm_gallery_messages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.common.rewards.utils.to_rm_gallery_messages" title="Link to this definition">#</a></dt>
-<dd><p>Converts string list to structured ChatMessage list for debugging.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>messages</strong> – List of alternating user/assistant messages</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of structured ChatMessage objects</p>
-</dd>
-</dl>
+  <section id="module-trinity.perf.resource_backends">
+<span id="trinity-perf-resource-backends-module"></span><h1>trinity.perf.resource_backends module<a class="headerlink" href="#module-trinity.perf.resource_backends" title="Link to this heading">#</a></h1>
+<p>System resource collection backends for performance tooling.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.perf.resource_backends.</span></span><span class="sig-name descname"><span class="pre">GPUSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpu_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_util_percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_memory_used_mb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_memory_total_mb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#GPUSample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>One GPU sample at one point in time.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.gpu_id">
+<span class="sig-name descname"><span class="pre">gpu_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.gpu_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.gpu_util_percent">
+<span class="sig-name descname"><span class="pre">gpu_util_percent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.gpu_util_percent" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.gpu_memory_used_mb">
+<span class="sig-name descname"><span class="pre">gpu_memory_used_mb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.gpu_memory_used_mb" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.gpu_memory_total_mb">
+<span class="sig-name descname"><span class="pre">gpu_memory_total_mb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.gpu_memory_total_mb" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#GPUSample.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.to_dict" title="Link to this definition">#</a></dt>
+<dd><p>Serialize the GPU sample to a dictionary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.GPUSample.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpu_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_util_percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_memory_used_mb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_memory_total_mb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#trinity.perf.resource_backends.GPUSample.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.perf.resource_backends.</span></span><span class="sig-name descname"><span class="pre">ResourceSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_rss_mb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#trinity.perf.resource_backends.GPUSample" title="trinity.perf.resource_backends.GPUSample"><span class="pre">GPUSample</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#ResourceSample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>One system resource sample at one point in time.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.timestamp" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.cpu_percent">
+<span class="sig-name descname"><span class="pre">cpu_percent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.cpu_percent" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.memory_rss_mb">
+<span class="sig-name descname"><span class="pre">memory_rss_mb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.memory_rss_mb" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.memory_percent">
+<span class="sig-name descname"><span class="pre">memory_percent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.memory_percent" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.gpu_metrics">
+<span class="sig-name descname"><span class="pre">gpu_metrics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#trinity.perf.resource_backends.GPUSample" title="trinity.perf.resource_backends.GPUSample"><span class="pre">GPUSample</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.gpu_metrics" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#ResourceSample.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.to_dict" title="Link to this definition">#</a></dt>
+<dd><p>Serialize the resource sample to a dictionary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.ResourceSample.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_rss_mb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#trinity.perf.resource_backends.GPUSample" title="trinity.perf.resource_backends.GPUSample"><span class="pre">GPUSample</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#trinity.perf.resource_backends.ResourceSample.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.SystemResourceBackend">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">trinity.perf.resource_backends.</span></span><span class="sig-name descname"><span class="pre">SystemResourceBackend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpu_subsample_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_subsample_interval_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#SystemResourceBackend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.SystemResourceBackend" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Collect system-level CPU, memory and per-GPU metrics.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.SystemResourceBackend.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpu_subsample_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_subsample_interval_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#SystemResourceBackend.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.SystemResourceBackend.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.SystemResourceBackend.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#SystemResourceBackend.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.SystemResourceBackend.open" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the GPU management library and validate the environment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.SystemResourceBackend.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#SystemResourceBackend.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.SystemResourceBackend.close" title="Link to this definition">#</a></dt>
+<dd><p>Release NVML resources.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="trinity.perf.resource_backends.SystemResourceBackend.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#trinity.perf.resource_backends.ResourceSample" title="trinity.perf.resource_backends.ResourceSample"><span class="pre">ResourceSample</span></a></span></span><a class="reference internal" href="../_modules/trinity/perf/resource_backends.html#SystemResourceBackend.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#trinity.perf.resource_backends.SystemResourceBackend.sample" title="Link to this definition">#</a></dt>
+<dd><p>Collect one resource sample.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -664,24 +793,6 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="trinity.common.rewards.tool_reward.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">trinity.common.rewards.tool_reward module</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="trinity.common.workflows.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">trinity.common.workflows package</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -700,7 +811,33 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.common.rewards.utils.to_rm_gallery_messages"><code class="docutils literal notranslate"><span class="pre">to_rm_gallery_messages()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample"><code class="docutils literal notranslate"><span class="pre">GPUSample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_id"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.name"><code class="docutils literal notranslate"><span class="pre">GPUSample.name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_util_percent"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_util_percent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_memory_used_mb"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_memory_used_mb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.gpu_memory_total_mb"><code class="docutils literal notranslate"><span class="pre">GPUSample.gpu_memory_total_mb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.to_dict"><code class="docutils literal notranslate"><span class="pre">GPUSample.to_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.GPUSample.__init__"><code class="docutils literal notranslate"><span class="pre">GPUSample.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample"><code class="docutils literal notranslate"><span class="pre">ResourceSample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.timestamp"><code class="docutils literal notranslate"><span class="pre">ResourceSample.timestamp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.cpu_percent"><code class="docutils literal notranslate"><span class="pre">ResourceSample.cpu_percent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.memory_rss_mb"><code class="docutils literal notranslate"><span class="pre">ResourceSample.memory_rss_mb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.memory_percent"><code class="docutils literal notranslate"><span class="pre">ResourceSample.memory_percent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.gpu_metrics"><code class="docutils literal notranslate"><span class="pre">ResourceSample.gpu_metrics</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.to_dict"><code class="docutils literal notranslate"><span class="pre">ResourceSample.to_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.ResourceSample.__init__"><code class="docutils literal notranslate"><span class="pre">ResourceSample.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.__init__"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.open"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.open()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.close"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.close()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trinity.perf.resource_backends.SystemResourceBackend.sample"><code class="docutils literal notranslate"><span class="pre">SystemResourceBackend.sample()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
